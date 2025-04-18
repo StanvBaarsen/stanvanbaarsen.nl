@@ -1,0 +1,114 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import { useActionState } from "react"
+import { submitContactForm } from "./actions"
+import { Button } from "@/components/ui/button"
+import { CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+
+const initialState = {
+  success: false,
+  message: "",
+  errors: {
+    name: [],
+    email: [],
+    message: [],
+  },
+}
+
+export default function ContactForm() {
+  const [state, formAction] = useActionState(submitContactForm, initialState)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    setIsSubmitting(true)
+    // The form will be handled by the server action
+  }
+
+  return (
+    <div className="relative rounded-lg border-0 bg-white p-6 shadow-sm dark:bg-slate-900">
+      <h3 className="mb-4 text-xl font-bold">Send a Message</h3>
+
+      {state.success ? (
+        <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <div className="flex items-center gap-3">
+            <CheckCircle className="h-5 w-5 text-green-500 dark:text-green-400" />
+            <p className="text-green-700 dark:text-green-300">{state.message}</p>
+          </div>
+        </div>
+      ) : (
+        <form className="space-y-4" action={formAction} onSubmit={handleSubmit}>
+          <div className="grid gap-2">
+            <label htmlFor="name" className="text-sm font-medium leading-none">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              className={`flex h-10 w-full rounded-md border ${
+                state.errors?.name?.length ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+              placeholder="Your name"
+            />
+            {state.errors?.name?.length ? <p className="text-xs text-red-500">{state.errors.name[0]}</p> : null}
+          </div>
+          <div className="grid gap-2">
+            <label htmlFor="email" className="text-sm font-medium leading-none">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              className={`flex h-10 w-full rounded-md border ${
+                state.errors?.email?.length ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+              placeholder="Your email"
+            />
+            {state.errors?.email?.length ? <p className="text-xs text-red-500">{state.errors.email[0]}</p> : null}
+          </div>
+          <div className="grid gap-2">
+            <label htmlFor="message" className="text-sm font-medium leading-none">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              className={`flex min-h-[120px] w-full rounded-md border ${
+                state.errors?.message?.length ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+              placeholder="Your message"
+            />
+            {state.errors?.message?.length ? <p className="text-xs text-red-500">{state.errors.message[0]}</p> : null}
+          </div>
+
+          {!state.success && state.message && (
+            <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+              <div className="flex items-center gap-2">
+                <AlertCircle className="h-4 w-4 text-red-500 dark:text-red-400" />
+                <p className="text-sm text-red-700 dark:text-red-300">{state.message}</p>
+              </div>
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white hover:from-cyan-600 hover:to-teal-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              "Send Message"
+            )}
+          </Button>
+        </form>
+      )}
+    </div>
+  )
+}
