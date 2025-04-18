@@ -153,7 +153,7 @@ export default function Home() {
 										</span>
 									</h1>
 									<p className={`mt-4 max-w-[700px] text-center text-lg text-muted-foreground md:text-left transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-										Student • Software Engineer • Aspiring Entrepreneur
+										Student • Software Engineer • Building Fig
 									</p>
 									<div className={`mt-8 flex gap-4 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 										<Button
