@@ -1,9 +1,7 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
-import { useActionState } from "react"
+import { useState, useActionState, startTransition } from "react"
 import { submitContactForm } from "./actions"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react"
@@ -23,8 +21,20 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setIsSubmitting(true)
-    // The form will be handled by the server action
+    
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    }
+    
+    startTransition(() => {
+      formAction(data)
+      setIsSubmitting(false)
+    })
   }
 
   return (
@@ -39,7 +49,7 @@ export default function ContactForm() {
           </div>
         </div>
       ) : (
-        <form className="space-y-4" action={formAction} onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="grid gap-2">
             <label htmlFor="name" className="text-sm font-medium leading-none">
               Name
@@ -47,6 +57,8 @@ export default function ContactForm() {
             <input
               id="name"
               name="name"
+              required
+              disabled={isSubmitting}
               className={`flex h-10 w-full rounded-md border ${
                 state.errors?.name?.length ? "border-red-500" : "border-input"
               } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
@@ -62,6 +74,8 @@ export default function ContactForm() {
               id="email"
               name="email"
               type="email"
+              required
+              disabled={isSubmitting}
               className={`flex h-10 w-full rounded-md border ${
                 state.errors?.email?.length ? "border-red-500" : "border-input"
               } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
@@ -76,6 +90,8 @@ export default function ContactForm() {
             <textarea
               id="message"
               name="message"
+              required
+              disabled={isSubmitting}
               className={`flex min-h-[120px] w-full rounded-md border ${
                 state.errors?.message?.length ? "border-red-500" : "border-input"
               } bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}

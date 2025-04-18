@@ -1,49 +1,59 @@
 "use server"
 
 import { z } from "zod"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 // Form validation schema
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+	name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+	email: z.string().email({ message: "Please enter a valid email address." }),
+	message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 })
 
 type FormData = z.infer<typeof formSchema>
 
 export async function submitContactForm(prevState: any, formData: FormData) {
-  // Validate form data
-  const validatedFields = formSchema.safeParse({
-    name: formData.name,
-    email: formData.email,
-    message: formData.message,
-  })
+	// Validate form data
+	const validatedFields = formSchema.safeParse(formData)
 
-  // Return early if form validation fails
-  if (!validatedFields.success) {
-    return {
-      success: false,
-      message: "Form validation failed. Please check your inputs.",
-      errors: validatedFields.error.flatten().fieldErrors,
-    }
-  }
+	// Return early if form validation fails
+	if (!validatedFields.success) {
+		return {
+			success: false,
+			message: "Form validation failed. Please check your inputs.",
+			errors: validatedFields.error.flatten().fieldErrors,
+		}
+	}
 
-  try {
-    // In a real application, you would send an email or store in a database
-    // For demonstration, we'll just simulate a successful submission
+	try {
+		const { name, email, message } = validatedFields.data
 
-    // Simulate network delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+		// Send email using Resend
+		await resend.emails.send({
+			from: "Contact Form <contactform@stanvanbaarsen.nl>",
+			to: process.env.CONTACT_EMAIL!,
+			subject: `New Contact Form Submission from ${name}`,
+			html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+		})
 
-    // Return success response
-    return {
-      success: true,
-      message: "Thank you for your message! I'll get back to you soon.",
-    }
-  } catch (error) {
-    return {
-      success: false,
-      message: "Something went wrong. Please try again later.",
-    }
-  }
+		// Return success response
+		return {
+			success: true,
+			message: "Thank you for your message! I'll get back to you soon.",
+		}
+	} catch (error) {
+		console.error("Failed to send email:", error)
+		return {
+			success: false,
+			message: "Something went wrong. Please try again later.",
+		}
+	}
 }
