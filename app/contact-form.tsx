@@ -61,7 +61,7 @@ export default function ContactForm() {
               disabled={isSubmitting}
               className={`flex h-10 w-full rounded-md border ${
                 state.errors?.name?.length ? "border-red-500" : "border-input"
-              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
               placeholder="Your name"
             />
             {state.errors?.name?.length ? <p className="text-xs text-red-500">{state.errors.name[0]}</p> : null}
@@ -78,7 +78,7 @@ export default function ContactForm() {
               disabled={isSubmitting}
               className={`flex h-10 w-full rounded-md border ${
                 state.errors?.email?.length ? "border-red-500" : "border-input"
-              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
               placeholder="Your email"
             />
             {state.errors?.email?.length ? <p className="text-xs text-red-500">{state.errors.email[0]}</p> : null}
@@ -94,7 +94,7 @@ export default function ContactForm() {
               disabled={isSubmitting}
               className={`flex min-h-[120px] w-full rounded-md border ${
                 state.errors?.message?.length ? "border-red-500" : "border-input"
-              } bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+              } bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
               placeholder="Your message"
             />
             {state.errors?.message?.length ? <p className="text-xs text-red-500">{state.errors.message[0]}</p> : null}
@@ -111,17 +111,20 @@ export default function ContactForm() {
 
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-cyan-500 to-teal-500 text-white hover:from-cyan-600 hover:to-teal-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/25"
+            className="relative overflow-hidden w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white transition-all duration-300 shadow-lg hover:shadow-blue-500/25 group"
             disabled={isSubmitting}
           >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              "Send Message"
-            )}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
+            <span className="relative flex items-center justify-center">
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                "Send Message"
+              )}
+            </span>
           </Button>
         </form>
       )}

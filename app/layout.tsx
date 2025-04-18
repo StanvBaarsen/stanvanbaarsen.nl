@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Stan van Baarsen',
   description: 'Personal website of Stan van Baarsen',
   generator: 'v0.dev',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
