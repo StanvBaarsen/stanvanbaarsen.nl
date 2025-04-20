@@ -21,16 +21,33 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <Link
               href="#about"
               onClick={(e) => scrollToSection(e, "about")}
-              className={`transition-colors hover:text-foreground/80 text-foreground/60 ${activeSection === "about" ? "text-blue-500 dark:text-blue-400" : ""
-                }`}
+              className={`transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+                activeSection === "about" 
+                  ? "text-blue-500 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
+                  : ""
+              }`}
             >
               About
             </Link>
             <Link
+              href="#projects"
+              onClick={(e) => scrollToSection(e, "projects")}
+              className={`transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+                activeSection === "projects" 
+                  ? "text-blue-500 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
+                  : ""
+              }`}
+            >
+              Projects
+            </Link>
+            <Link
               href="#contact"
               onClick={(e) => scrollToSection(e, "contact")}
-              className={`transition-colors hover:text-foreground/80 text-foreground/60 ${activeSection === "contact" ? "text-blue-500 dark:text-blue-400" : ""
-                }`}
+              className={`transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+                activeSection === "contact" 
+                  ? "text-blue-500 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
+                  : ""
+              }`}
             >
               Contact
             </Link>

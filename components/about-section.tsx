@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { Sparkles } from "lucide-react"
 
 export function AboutSection() {
   return (
@@ -12,6 +13,10 @@ export function AboutSection() {
       </div>
       <div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
         <div className="mb-16 flex flex-col items-center text-center animate-fade-in">
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 px-4 py-1.5 text-sm font-medium text-cyan-800 dark:from-cyan-900/50 dark:to-blue-900/50 dark:text-cyan-300 shadow-sm">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Background</span>
+          </div>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">About me</h2>
         </div>
         <div className="grid gap-12 md:grid-cols-2">

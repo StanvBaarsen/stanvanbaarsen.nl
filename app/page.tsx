@@ -14,7 +14,7 @@ export default function Home() {
 	useEffect(() => {
 		// Set isVisible to true after a short delay to ensure the component is mounted
 		const timer = setTimeout(() => {
-		setIsVisible(true)
+			setIsVisible(true)
 		}, 100)
 
 		return () => clearTimeout(timer)
@@ -57,6 +57,6 @@ export default function Home() {
 			<AboutSection />
 			<ProjectsSection />
 			<ContactSection />
-				</main>
+		</main>
 	)
 }

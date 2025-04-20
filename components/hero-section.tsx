@@ -13,16 +13,17 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-slate-50 to-blue-100 dark:from-slate-900 dark:via-blue-950 dark:to-slate-900">
       <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute -left-20 -top-20 h-[40rem] w-[40rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900"></div>
-        <div className="absolute -bottom-32 right-0 h-[30rem] w-[30rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[20rem] w-[20rem] rounded-full bg-blue-100 blur-3xl dark:bg-blue-800"></div>
+        <div className="absolute -left-20 -top-20 h-[40rem] w-[40rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse"></div>
+        <div className="absolute -bottom-32 right-0 h-[30rem] w-[30rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[20rem] w-[20rem] rounded-full bg-blue-100 blur-3xl dark:bg-blue-800 animate-pulse delay-2000"></div>
       </div>
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:bg-[url('/grid-dark.svg')]"></div>
       <div className="container mx-auto relative z-10 grid items-center gap-6 px-4 pb-20 pt-16 md:px-6 md:py-8 lg:py-32 w-full">
         <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12">
           <div className="flex flex-col items-center md:items-start">
             <h1 className={`text-center text-4xl font-bold tracking-tight md:text-left md:text-5xl lg:text-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent animate-gradient">
                 Stan van Baarsen
               </span>
             </h1>
@@ -42,15 +43,15 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
             </div>
           </div>
           <div className={`flex justify-center md:justify-end md:flex-1 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="relative">
-              <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-blue-500/30 to-blue-700/30 blur-xl"></div>
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-700/20 blur-lg"></div>
+            <div className="relative group">
+              <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-blue-500/30 to-blue-700/30 blur-xl group-hover:scale-110 transition-transform duration-500"></div>
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-700/20 blur-lg group-hover:scale-110 transition-transform duration-500"></div>
               <Image
                 src="/headshot.jpg"
                 alt="Stan van Baarsen"
                 width={200}
                 height={200}
-                className="relative rounded-full border-4 border-white shadow-xl dark:border-slate-800 transition-transform duration-1000 hover:scale-105"
+                className="relative rounded-full border-4 border-white shadow-xl dark:border-slate-800 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-blue-500/20"
               />
             </div>
           </div>
