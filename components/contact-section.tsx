@@ -1,0 +1,77 @@
+"use client"
+
+import { Github, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
+import ContactForm from "@/app/contact-form"
+
+export function ContactSection() {
+  return (
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-gradient-to-br from-slate-100 to-blue-50 py-8 md:py-32 dark:from-slate-900 dark:to-blue-950"
+    >
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute left-0 top-0 h-[20rem] w-[20rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-700"></div>
+        <div className="absolute bottom-0 right-0 h-[15rem] w-[15rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-1000"></div>
+      </div>
+      <div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
+        <div className="mb-16 flex flex-col items-center text-center">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl animate-slide-up">Let's connect!</h2>
+        </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="animate-slide-up delay-200">
+            <p className="mb-6 text-lg transition-colors duration-300">
+              Interested in working together or have a question? Feel free to reach out through any of the channels
+              below.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 group">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <Link
+                  href="mailto:stanvanbaarsen@hotmail.com"
+                  className="transition-colors"
+                >
+                  stanvanbaarsen@hotmail.com
+                </Link>
+              </div>
+              <div className="flex items-center gap-3 group">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <Linkedin className="h-5 w-5" />
+                </div>
+                <Link
+                  href="https://linkedin.com/in/stan-van-baarsen"
+                  className="transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  linkedin.com/in/stan-van-baarsen
+                </Link>
+              </div>
+              <div className="flex items-center gap-3 group">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <Github className="h-5 w-5" />
+                </div>
+                <Link
+                  href="https://github.com/stanvbaarsen"
+                  className="transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/stanvbaarsen
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center animate-slide-up delay-300">
+            <div className="relative w-full max-w-md">
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 opacity-70 blur-sm animate-pulse"></div>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+} 

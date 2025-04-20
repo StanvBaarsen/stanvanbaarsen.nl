@@ -61,32 +61,9 @@ module.exports = {
           "0%, 100%": { transform: "scale(1)", opacity: "0.5" },
           "50%": { transform: "scale(1.8)", opacity: "0.7" },
         },
-        "slide-up": {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        "float": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "scale-in": {
-          "0%": { transform: "scale(0.9)", opacity: "0" },
-          "100%": { transform: "scale(1)", opacity: "1" },
-        },
-        "fade-in": {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
       },
       animation: {
         "breathe": "breathe 16s ease-in-out infinite",
-        "slide-up": "slide-up 0.5s ease-out forwards",
-        "float": "float 3s ease-in-out infinite",
-        "scale-in": "scale-in 0.3s ease-out forwards",
-        "fade-in": "fade-in 0.8s ease-out forwards",
-        "fade-in-delayed": "fade-in 0.8s ease-out 0.3s forwards",
-        "fade-in-more-delayed": "fade-in 0.8s ease-out 0.6s forwards",
-        "fade-in-most-delayed": "fade-in 0.8s ease-out 0.9s forwards",
       },
     },
   },

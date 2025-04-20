@@ -8,8 +8,39 @@ body {
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    max-width: 65ch;
+    text-align: left;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
   }
+}
+
+/* Ensure text in the HeroSection is visible */
+#home h1,
+#home p,
+#home button {
+  position: relative;
+  z-index: 20;
+  color: inherit;
+}
+
+/* Ensure text is visible in dark mode */
+.dark #home h1,
+.dark #home p {
+  color: white;
+}
+
+/* CSS for data attributes */
+[data-sidebar-width] {
+  --sidebar-width: attr(data-sidebar-width);
+  --sidebar-width-icon: attr(data-sidebar-width-icon);
+}
+
+[data-color] {
+  --item-color: attr(data-color);
 }
 
 @layer base {

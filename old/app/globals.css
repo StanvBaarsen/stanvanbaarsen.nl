@@ -8,13 +8,7 @@ body {
 
 @layer utilities {
   .text-balance {
-    max-width: 65ch;
-    text-align: left;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
+    text-wrap: balance;
   }
 }
 

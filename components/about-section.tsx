@@ -1,0 +1,48 @@
+"use client"
+
+import Image from "next/image"
+
+export function AboutSection() {
+  return (
+    <section id="about" className="relative py-16 md:py-24 overflow-hidden px-12">
+      <div className="absolute inset-0 z-0 opacity-40">
+        <div className="absolute right-0 top-0 h-[20rem] w-[20rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-500"></div>
+        <div className="absolute bottom-0 left-0 h-[15rem] w-[15rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[10rem] w-[10rem] rounded-full bg-blue-100 blur-3xl dark:bg-blue-800 animate-pulse delay-1500"></div>
+      </div>
+      <div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
+        <div className="mb-16 flex flex-col items-center text-center animate-fade-in">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">About me</h2>
+        </div>
+        <div className="grid gap-12 md:grid-cols-2">
+          <div className="relative animate-slide-up delay-200">
+            <div className="absolute -left-4 top-0 h-full w-1 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full animate-pulse"></div>
+            <div className="space-y-6">
+              <p className="leading-7 text-lg transition-colors duration-300">
+                I'm Stan van Baarsen, currently studying a master's in Technology Policy at the University of Cambridge. After graduating this summer, I plan to focus full time on building a startup. I'm driven by how ventures can create meaningful change at the intersection of technology, policy, and society.
+              </p>
+              <p className="leading-7 text-lg transition-colors duration-300">
+                I completed two bachelor's degrees — in Computer Science at Leiden University and International Business Administration at Vrije Universiteit Amsterdam — with a focus on political and public economics. I also studied abroad in New York to broaden my global perspective.
+              </p>
+              <p className="leading-7 text-lg transition-colors duration-300">
+                I'm passionate about the intersection of innovation, economic policy, and society. In particular, I care about European challenges like digital sovereignty, fostering a European startup ecosystem, and the future of AI regulation.
+              </p>
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center animate-slide-up delay-300">
+            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-blue-700/20 blur-xl animate-pulse"></div>
+            <div className="relative overflow-hidden rounded-xl border border-blue-200 dark:border-blue-800 shadow-xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-blue-500/25">
+              <Image
+                src="/downing.jpg"
+                width={600}
+                height={400}
+                alt="Stan working"
+                className="w-full transition-all duration-500 hover:scale-105"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+} 
