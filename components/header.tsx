@@ -1,9 +1,10 @@
 "use client"
 
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import { ThemeToggle } from "./theme-toggle"
 
 interface HeaderProps {
   activeSection: string
@@ -12,6 +13,14 @@ interface HeaderProps {
 
 export function Header({ activeSection, scrollToSection }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navRefs = useRef<{[key: string]: HTMLAnchorElement | null}>({
+    about: null,
+    projects: null,
+    contact: null
+  });
+  const indicatorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +30,11 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
       } else {
         setScrolled(false);
       }
+      
+      // Calculate scroll progress
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = Math.min(Math.max(offset / height, 0), 1);
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -29,84 +43,228 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
     };
   }, []);
 
+  // Update the position indicator when active section changes
+  useEffect(() => {
+    const activeLink = navRefs.current[activeSection];
+    const indicator = indicatorRef.current;
+    
+    if (activeLink && indicator) {
+      const { offsetWidth, offsetLeft } = activeLink;
+      indicator.style.width = `${offsetWidth}px`;
+      indicator.style.transform = `translateX(${offsetLeft}px)`;
+      indicator.style.opacity = '1';
+    } else if (indicator) {
+      indicator.style.opacity = '0';
+    }
+  }, [activeSection, scrolled]);
+
+  // Close mobile menu when clicking a navigation link
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    scrollToSection(e, id);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className={`fixed top-0 inset-x-0 z-50 w-full backdrop-blur-xl transition-all duration-300 ${
       scrolled 
-        ? 'border-b border-blue-100/30 dark:border-blue-900/30 bg-white/80 dark:bg-slate-950/80 py-1' 
-        : 'bg-transparent py-3'
+        ? 'border-b border-blue-100/40 dark:border-blue-900/40 bg-white/90 dark:bg-slate-950/90 py-1 shadow-sm' 
+        : 'bg-transparent py-2'
     }`}>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-white/5 to-cyan-50/20 dark:from-blue-950/20 dark:via-transparent dark:to-cyan-950/20 opacity-50"></div>
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+      {/* Scroll Progress Bar */}
+      <div className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 transition-transform duration-150 ease-out"
+           style={{ width: '100%', transform: `scaleX(${scrollProgress})`, transformOrigin: 'left' }}></div>
       
-      <div className="container flex h-16 items-center relative z-10">
-        <div className="flex mr-4 items-center">
-          <Link href="/" className="group mr-6 flex items-center space-x-2 interactive-hover">
-            <span className="font-bold text-lg bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-cyan-500 transition-all duration-300">Stan van Baarsen</span>
-            <div className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 animate-pulse"></div>
+      {/* Fancy gradient underline */}
+      <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-teal-500/40 to-transparent"></div>
+      
+      {/* Subtle glass overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/10 via-white/10 to-sky-50/10 dark:from-blue-950/10 dark:via-slate-950/10 dark:to-sky-950/10 opacity-70"></div>
+      
+      <div className="container mx-auto flex h-16 items-center relative z-10 max-w-full px-4">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link href="/" className="group mr-8 flex items-center space-x-2 interactive-hover">
+            <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-teal-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
+              <span className="font-bold text-white text-sm">SB</span>
+            </div>
+            <span className="font-bold text-lg bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">
+              Stan van Baarsen
+            </span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-1 text-sm font-medium relative">
+            {/* Moving active indicator */}
+            <div 
+              ref={indicatorRef}
+              className="absolute h-8 rounded-full bg-blue-100/60 dark:bg-blue-900/30 -z-10 transition-all duration-300 ease-in-out"
+            ></div>
+            
             <Link
+              ref={(el) => { navRefs.current.about = el; }}
               href="#about"
-              onClick={(e) => scrollToSection(e, "about")}
-              className={`interactive-hover transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+              onClick={(e) => handleNavClick(e, "about")}
+              className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
                 activeSection === "about" 
-                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
-                  : ""
+                  ? "text-blue-600 dark:text-blue-400 font-semibold" 
+                  : "text-foreground/70 hover:text-foreground"
               }`}
             >
               About
             </Link>
             <Link
+              ref={(el) => { navRefs.current.projects = el; }}
               href="#projects"
-              onClick={(e) => scrollToSection(e, "projects")}
-              className={`interactive-hover transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+              onClick={(e) => handleNavClick(e, "projects")}
+              className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
                 activeSection === "projects" 
-                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
-                  : ""
+                  ? "text-blue-600 dark:text-blue-400 font-semibold" 
+                  : "text-foreground/70 hover:text-foreground"
               }`}
             >
               Projects
             </Link>
             <Link
+              ref={(el) => { navRefs.current.contact = el; }}
               href="#contact"
-              onClick={(e) => scrollToSection(e, "contact")}
-              className={`interactive-hover transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+              onClick={(e) => handleNavClick(e, "contact")}
+              className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
                 activeSection === "contact" 
-                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
-                  : ""
+                  ? "text-blue-600 dark:text-blue-400 font-semibold" 
+                  : "text-foreground/70 hover:text-foreground"
               }`}
             >
               Contact
             </Link>
           </nav>
         </div>
+        
+        {/* Right side - social icons and theme toggle */}
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="interactive-hover text-blue-600 dark:text-blue-400 transition-all duration-300 hover:scale-110 hover:rotate-3"
-              asChild
-            >
-              <Link href="https://github.com/StanvBaarsen" target="_blank" rel="noopener noreferrer">
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="interactive-hover text-blue-600 dark:text-blue-400 transition-all duration-300 hover:scale-110 hover:rotate-3"
-              asChild
-            >
-              <Link href="https://linkedin.com/in/stan-van-baarsen" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            </Button>
+          <div className="hidden md:flex items-center gap-3">
+            <SocialButton href="https://github.com/StanvBaarsen" icon={<Github />} label="GitHub" />
+            <SocialButton href="https://linkedin.com/in/stan-van-baarsen" icon={<Linkedin />} label="LinkedIn" />
+            <SocialButton href="/resume.pdf" icon={
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <line x1="10" y1="9" x2="8" y2="9"></line>
+              </svg>
+            } label="Resume" />
+            <div className="w-px h-6 bg-slate-200 dark:bg-slate-800 mx-1"></div>
+            <ThemeToggle />
           </div>
+          
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="interactive-hover md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+            <span className="sr-only">Toggle menu</span>
+          </Button>
         </div>
       </div>
+      
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden pt-20 px-4 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl animate-fade-in">
+          <nav className="flex flex-col items-center space-y-6 pt-8">
+            <MobileNavLink 
+              href="#about" 
+              label="About" 
+              active={activeSection === "about"} 
+              onClick={(e) => handleNavClick(e, "about")} 
+            />
+            <MobileNavLink 
+              href="#projects" 
+              label="Projects" 
+              active={activeSection === "projects"} 
+              onClick={(e) => handleNavClick(e, "projects")} 
+            />
+            <MobileNavLink 
+              href="#contact" 
+              label="Contact" 
+              active={activeSection === "contact"} 
+              onClick={(e) => handleNavClick(e, "contact")} 
+            />
+            
+            <div className="flex items-center gap-6 pt-6">
+              <SocialButton href="https://github.com/StanvBaarsen" icon={<Github />} label="GitHub" />
+              <SocialButton href="https://linkedin.com/in/stan-van-baarsen" icon={<Linkedin />} label="LinkedIn" />
+              <SocialButton href="/resume.pdf" icon={
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <line x1="10" y1="9" x2="8" y2="9"></line>
+                </svg>
+              } label="Resume" />
+              <ThemeToggle />
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   )
+}
+
+// Reusable component for mobile navigation
+function MobileNavLink({ 
+  href, 
+  label, 
+  active, 
+  onClick 
+}: { 
+  href: string; 
+  label: string; 
+  active: boolean; 
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void 
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`text-xl font-medium py-2 px-6 rounded-full ${
+        active 
+          ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" 
+          : "text-foreground/70"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
+
+function SocialButton({ 
+  href, 
+  icon, 
+  label 
+}: { 
+  href: string; 
+  icon: React.ReactNode; 
+  label: string 
+}) {
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      className="interactive-hover text-foreground/70 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 rounded-full"
+      asChild
+    >
+      <Link href={href} target="_blank" rel="noopener noreferrer">
+        {icon}
+        <span className="sr-only">{label}</span>
+      </Link>
+    </Button>
+  );
 } 

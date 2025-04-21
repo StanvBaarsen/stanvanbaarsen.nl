@@ -7,6 +7,25 @@ import { AboutSection } from "@/components/about-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { ContactSection } from "@/components/contact-section"
 
+// Pre-define fixed particle positions and properties to avoid hydration mismatch
+const particles = [
+	{ width: 3, height: 3, top: 20, left: 30, opacity: 0.6, delay: 1, duration: 15 },
+	{ width: 2, height: 4, top: 40, left: 70, opacity: 0.5, delay: 2, duration: 18 },
+	{ width: 4, height: 2, top: 60, left: 20, opacity: 0.7, delay: 3, duration: 12 },
+	{ width: 5, height: 5, top: 80, left: 80, opacity: 0.4, delay: 4, duration: 20 },
+	{ width: 2, height: 2, top: 30, left: 50, opacity: 0.5, delay: 2, duration: 15 },
+	{ width: 3, height: 5, top: 70, left: 40, opacity: 0.6, delay: 5, duration: 17 },
+	{ width: 4, height: 3, top: 10, left: 60, opacity: 0.7, delay: 1, duration: 14 },
+	{ width: 2, height: 2, top: 50, left: 10, opacity: 0.5, delay: 3, duration: 16 },
+	{ width: 3, height: 3, top: 25, left: 75, opacity: 0.6, delay: 4, duration: 13 },
+	{ width: 5, height: 2, top: 45, left: 90, opacity: 0.4, delay: 2, duration: 19 },
+	{ width: 2, height: 4, top: 85, left: 35, opacity: 0.7, delay: 5, duration: 11 },
+	{ width: 3, height: 3, top: 15, left: 55, opacity: 0.5, delay: 3, duration: 14 },
+	{ width: 4, height: 2, top: 65, left: 25, opacity: 0.6, delay: 1, duration: 16 },
+	{ width: 2, height: 5, top: 5, left: 85, opacity: 0.5, delay: 4, duration: 18 },
+	{ width: 3, height: 3, top: 75, left: 5, opacity: 0.7, delay: 2, duration: 12 }
+];
+
 export default function Home() {
 	const [activeSection, setActiveSection] = useState("home")
 	const [isVisible, setIsVisible] = useState(false)
@@ -70,51 +89,62 @@ export default function Home() {
 	}, [])
 
 	return (
-		<>
+		<div className="overflow-x-hidden w-full max-w-full">
 			<Header activeSection={activeSection} scrollToSection={scrollToSection} />
-			<main className="min-h-screen bg-gradient-to-b from-white to-white dark:from-slate-950 dark:to-slate-950 overflow-hidden">
-				{/* Mouse cursor glow effect */}
+			<main className="min-h-screen max-w-full overflow-x-hidden bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+				{/* Enhanced mouse cursor glow effect */}
 				<div 
 					ref={mouseCursorRef}
-					className="cursor-glow pointer-events-none fixed z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-400/30 to-cyan-400/30 blur-xl dark:from-blue-500/20 dark:to-cyan-500/20 transition-all duration-300 ease-out"
+					className="cursor-glow pointer-events-none fixed z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-teal-400/30 blur-xl dark:from-blue-500/20 dark:via-sky-500/15 dark:to-teal-500/20 transition-all duration-300 ease-out"
 					style={{ 
 						left: mousePosition.x, 
 						top: mousePosition.y, 
 						transform: `translate(-50%, -50%) scale(${mousePosition.x > 0 ? 1 : 0})`,
-						opacity: 0.65
+						opacity: 0.7
 					}}
 				/>
 				
-				{/* Background elements that persist throughout the site */}
 				<div className="fixed inset-0 z-0 pointer-events-none">
-					{/* Common subtle grid pattern */}
-					<div className="absolute inset-0 bg-center opacity-30 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+					<div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-[0.2] dark:opacity-[0.15]"></div>
 					
-					{/* Subtle animated gradients */}
-					<div className="absolute -left-64 -top-64 h-[50rem] w-[50rem] rounded-full bg-blue-100/30 blur-3xl dark:bg-blue-900/20 animate-pulse"></div>
-					<div className="absolute -right-64 -bottom-64 h-[50rem] w-[50rem] rounded-full bg-blue-100/30 blur-3xl dark:bg-blue-900/20 animate-pulse delay-1000"></div>
-					<div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[30rem] w-[30rem] rounded-full bg-cyan-100/20 blur-3xl dark:bg-cyan-900/10 animate-pulse delay-2000"></div>
+					<div className="absolute left-0 top-64 h-[40rem] w-[40rem] rounded-full bg-gradient-to-b from-blue-100/40 to-cyan-100/40 blur-3xl dark:from-blue-900/20 dark:to-cyan-900/20 animate-float"></div>
+					<div className="absolute right-0 bottom-64 h-[35rem] w-[35rem] rounded-full bg-gradient-to-tr from-teal-100/30 to-blue-100/30 blur-3xl dark:from-teal-900/20 dark:to-blue-900/20 animate-float [animation-delay:2000ms]"></div>
+					<div className="absolute top-1/2 left-1/4 h-[25rem] w-[25rem] rounded-full bg-gradient-to-r from-cyan-100/30 to-sky-100/30 blur-3xl dark:from-cyan-900/15 dark:to-sky-900/15 animate-float [animation-delay:1000ms]"></div>
+					
+					<div className="absolute inset-0 overflow-hidden opacity-30 dark:opacity-20 z-0">
+						<div className="particle-container">
+							{particles.map((particle, i) => (
+								<div 
+									key={i}
+									className="particle absolute rounded-full bg-white dark:bg-blue-400"
+									style={{
+										width: `${particle.width}px`,
+										height: `${particle.height}px`,
+										top: `${particle.top}%`,
+										left: `${particle.left}%`,
+										opacity: particle.opacity,
+										animation: `float ${particle.duration}s linear infinite`,
+										animationDelay: `${particle.delay}s`
+									}}
+								/>
+							))}
+						</div>
+					</div>
 				</div>
 				
-				<div className="relative z-10">
+				<div className="relative z-10 mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
-					<div className="relative z-10 py-6 md:py-8">
-						<div className="absolute inset-0"></div>
-						<div className="relative z-10">
-							<AboutSection />
-						</div>
-					</div>
-					<div className="relative z-10 py-6 md:py-8">
-						<div className="absolute inset-0 "></div>
-						<div className="relative z-10">
-							<ProjectsSection />
-						</div>
+					<div className="relative z-10">
+						<AboutSection />
 					</div>
 					<div className="relative z-10">
+						<ProjectsSection />
+					</div>
+					<div className="relative z-10"> 
 						<ContactSection />
 					</div>
 				</div>
 			</main>
-		</>
+		</div>
 	)
 }

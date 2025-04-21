@@ -95,7 +95,11 @@ const config: Config = {
   			'float': {
   				'0%, 100%': { transform: 'translateY(0)' },
   				'50%': { transform: 'translateY(-10px)' }
-  			}
+  			},
+            'spin-slow': {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' }
+            }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
@@ -104,7 +108,8 @@ const config: Config = {
   			'slide-down': 'slide-down 0.5s ease-out',
   			'fade-in': 'fade-in 0.5s ease-out',
   			'scale-in': 'scale-in 0.5s ease-out',
-  			'float': 'float 3s ease-in-out infinite'
+  			'float': 'float 3s ease-in-out infinite',
+            'spin-slow': 'spin-slow 10s linear infinite'
   		}
   	}
   },
