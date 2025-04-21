@@ -19,7 +19,7 @@ export function ProjectsSection() {
 				</div>
 				<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full">
-						<Card className="group overflow-hidden border-cyan-200 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(8,_112,_184,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in h-full transition-all duration-500">
+						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(8,_112,_184,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 								<Image
@@ -60,7 +60,7 @@ export function ProjectsSection() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="border-cyan-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:text-white dark:border-cyan-800 dark:hover:from-blue-500 dark:hover:to-cyan-500 transition-all duration-300 inline-flex items-center gap-1 group-hover:border-blue-400 dark:group-hover:border-blue-500"
+											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
 											<Link href="https://getfig.netlify.app" target="_blank" rel="noopener noreferrer">
@@ -71,7 +71,7 @@ export function ProjectsSection() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="border-cyan-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:text-white dark:border-cyan-800 dark:hover:from-blue-500 dark:hover:to-cyan-500 transition-all duration-300 inline-flex items-center gap-1 group-hover:border-blue-400 dark:group-hover:border-blue-500"
+											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
 											<Link href="https://instagram.com/getfigapp" target="_blank" rel="noopener noreferrer">
@@ -86,7 +86,7 @@ export function ProjectsSection() {
 					</div>
 
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full">
-						<Card className="group overflow-hidden border-cyan-200 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(8,_112,_184,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-200 h-full transition-all duration-500">
+						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(8,_112,_184,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-200 h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 								<Image
@@ -119,7 +119,7 @@ export function ProjectsSection() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="border-cyan-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:text-white dark:border-cyan-800 dark:hover:from-blue-500 dark:hover:to-cyan-500 transition-all duration-300 inline-flex items-center gap-1 group-hover:border-blue-400 dark:group-hover:border-blue-500"
+											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
 											<Link href="https://stans-spotify-player.netlify.app" target="_blank" rel="noopener noreferrer">
@@ -130,7 +130,7 @@ export function ProjectsSection() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="border-cyan-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:text-white dark:border-cyan-800 dark:hover:from-blue-500 dark:hover:to-cyan-500 transition-all duration-300 inline-flex items-center gap-1 group-hover:border-blue-400 dark:group-hover:border-blue-500"
+											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
 											<Link href="http://github.com/StanvBaarsen/StansSpotifyClient" target="_blank" rel="noopener noreferrer">
@@ -145,7 +145,7 @@ export function ProjectsSection() {
 					</div>
 
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full">
-						<Card className="group overflow-hidden border-cyan-200 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(8,_112,_184,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-100 h-full transition-all duration-500">
+						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(8,_112,_184,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-100 h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 								<Image
@@ -181,7 +181,7 @@ export function ProjectsSection() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="border-cyan-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:text-white dark:border-cyan-800 dark:hover:from-blue-500 dark:hover:to-cyan-500 transition-all duration-300 inline-flex items-center gap-1 group-hover:border-blue-400 dark:group-hover:border-blue-500"
+											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
 											<Link href="https://shop.timmerdorp.com" target="_blank" rel="noopener noreferrer">
@@ -192,7 +192,7 @@ export function ProjectsSection() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="border-cyan-200 hover:bg-gradient-to-r hover:from-blue-400 hover:to-cyan-400 hover:text-white dark:border-cyan-800 dark:hover:from-blue-500 dark:hover:to-cyan-500 transition-all duration-300 inline-flex items-center gap-1 group-hover:border-blue-400 dark:group-hover:border-blue-500"
+											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
 											<Link href="https://github.com/SHoogland/timmerdorp-web-app" target="_blank" rel="noopener noreferrer">
