@@ -5,12 +5,7 @@ import { Sparkles } from "lucide-react"
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative py-16 md:py-24 overflow-hidden px-12">
-      <div className="absolute inset-0 z-0 opacity-40">
-        <div className="absolute right-0 top-0 h-[20rem] w-[20rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-500"></div>
-        <div className="absolute bottom-0 left-0 h-[15rem] w-[15rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[10rem] w-[10rem] rounded-full bg-blue-100 blur-3xl dark:bg-blue-800 animate-pulse delay-1500"></div>
-      </div>
+    <section id="about" className="relative py-6 md:py-8 overflow-hidden px-12">
       <div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
         <div className="mb-16 flex flex-col items-center text-center animate-fade-in">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 px-4 py-1.5 text-sm font-medium text-cyan-800 dark:from-cyan-900/50 dark:to-blue-900/50 dark:text-cyan-300 shadow-sm">
@@ -34,15 +29,15 @@ export function AboutSection() {
               </p>
             </div>
           </div>
-          <div className="relative flex items-center justify-center animate-slide-up delay-300">
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-blue-700/20 blur-xl animate-pulse"></div>
-            <div className="relative overflow-hidden rounded-xl border border-blue-200 dark:border-blue-800 shadow-xl transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-blue-500/25">
+          <div className="relative flex items-center justify-center animate-slide-up delay-300 p-6">
+            <div className="absolute inset-10 rounded-2xl bg-gradient-to-r from-blue-500/15 to-blue-700/15 blur-lg"></div>
+            <div className="relative overflow-hidden rounded-xl border border-blue-200 dark:border-blue-800 shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-blue-500/20">
               <Image
                 src="/downing.jpg"
                 width={600}
                 height={400}
                 alt="Stan working"
-                className="w-full transition-all duration-500 hover:scale-105"
+                className="w-full transition-all duration-500 hover:scale-102"
               />
             </div>
           </div>

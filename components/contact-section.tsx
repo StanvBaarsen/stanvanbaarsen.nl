@@ -8,12 +8,8 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-br from-slate-100 to-blue-50 py-8 md:py-32 dark:from-slate-900 dark:to-blue-950"
+      className="relative overflow-hidden py-16 md:py-32"
     >
-      <div className="absolute inset-0 z-0 opacity-30">
-        <div className="absolute left-0 top-0 h-[20rem] w-[20rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-700"></div>
-        <div className="absolute bottom-0 right-0 h-[15rem] w-[15rem] rounded-full bg-blue-200 blur-3xl dark:bg-blue-900 animate-pulse delay-1000"></div>
-      </div>
       <div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
         <div className="mb-16 flex flex-col items-center text-center">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 px-4 py-1.5 text-sm font-medium text-cyan-800 dark:from-cyan-900/50 dark:to-blue-900/50 dark:text-cyan-300 shadow-sm">
