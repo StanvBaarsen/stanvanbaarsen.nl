@@ -45,23 +45,39 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <div className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 animate-pulse"></div>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {["about", "projects", "contact"].map((section) => (
-              <Link
-                key={section}
-                href={`#${section}`}
-                onClick={(e) => scrollToSection(e, section)}
-                className={`interactive-hover relative transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 text-foreground/60 ${
-                  activeSection === section 
-                    ? "text-blue-600 dark:text-blue-400 font-semibold" 
-                    : ""
-                }`}
-              >
-                <span>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
-                {activeSection === section && (
-                  <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></span>
-                )}
-              </Link>
-            ))}
+            <Link
+              href="#about"
+              onClick={(e) => scrollToSection(e, "about")}
+              className={`interactive-hover transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+                activeSection === "about" 
+                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
+                  : ""
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              href="#projects"
+              onClick={(e) => scrollToSection(e, "projects")}
+              className={`interactive-hover transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+                activeSection === "projects" 
+                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
+                  : ""
+              }`}
+            >
+              Projects
+            </Link>
+            <Link
+              href="#contact"
+              onClick={(e) => scrollToSection(e, "contact")}
+              className={`interactive-hover transition-all duration-300 hover:text-foreground/80 text-foreground/60 ${
+                activeSection === "contact" 
+                  ? "text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-blue-950/30 px-3 py-1.5 rounded-full shadow-sm" 
+                  : ""
+              }`}
+            >
+              Contact
+            </Link>
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
@@ -69,7 +85,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <Button
               variant="ghost"
               size="icon"
-              className="interactive-hover text-blue-600 dark:text-blue-400 transition-all duration-300 hover:scale-110 hover:bg-blue-50/50 dark:hover:bg-blue-950/50 rounded-full"
+              className="interactive-hover text-blue-600 dark:text-blue-400 transition-all duration-300 hover:scale-110 hover:rotate-3"
               asChild
             >
               <Link href="https://github.com/StanvBaarsen" target="_blank" rel="noopener noreferrer">
@@ -80,7 +96,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <Button
               variant="ghost"
               size="icon"
-              className="interactive-hover text-blue-600 dark:text-blue-400 transition-all duration-300 hover:scale-110 hover:bg-blue-50/50 dark:hover:bg-blue-950/50 rounded-full"
+              className="interactive-hover text-blue-600 dark:text-blue-400 transition-all duration-300 hover:scale-110 hover:rotate-3"
               asChild
             >
               <Link href="https://linkedin.com/in/stan-van-baarsen" target="_blank" rel="noopener noreferrer">
