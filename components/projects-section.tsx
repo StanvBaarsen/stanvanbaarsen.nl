@@ -18,65 +18,65 @@ export function ProjectsSection() {
 					<h2 className="text-3xl font-bold tracking-tight md:text-4xl bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">My recent work</h2>
 				</div>
 
-				<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full max-w-full">
-					<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-purple-300 hover:shadow-[0_12px_30px_rgba(147,_51,_234,_0.4)] dark:border-purple-900 dark:bg-slate-900/50 dark:hover:border-purple-800 animate-scale-in delay-200 h-full transition-all duration-500">
-						<div className="relative h-48 overflow-hidden">
-							<div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-							<div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30">
-								<div className="flex items-center justify-center w-20 h-20 rounded-full bg-purple-200 dark:bg-purple-800/50 text-purple-600 dark:text-purple-400">
-									<Atom className="w-10 h-10" />
+				<div className="flex flex-wrap justify-center gap-8 w-full">
+					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
+						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-purple-300 hover:shadow-[0_12px_30px_rgba(147,_51,_234,_0.4)] dark:border-purple-900 dark:bg-slate-900/50 dark:hover:border-purple-800 animate-scale-in delay-200 h-full transition-all duration-500">
+							<div className="relative h-48 overflow-hidden">
+								<div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+								<div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30">
+									<div className="flex items-center justify-center w-20 h-20 rounded-full bg-purple-200 dark:bg-purple-800/50 text-purple-600 dark:text-purple-400">
+										<Atom className="w-10 h-10" />
+									</div>
 								</div>
+								<div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 							</div>
-							<div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-						</div>
-						<CardContent className="p-6 flex flex-col h-full" style={{ height: 'calc(100% - 12rem)' }}>
-							<div className="flex flex-col flex-grow">
-								<div className="mb-4">
-									<h3 className="text-xl font-bold text-purple-600 dark:text-purple-400 transition-all duration-300">
-										<Link href="https://theses.liacs.nl/2918" target="_blank" rel="noopener noreferrer" className="hover:underline">
-											Thesis: Quantum State Preparation
-										</Link>
-									</h3>
+							<CardContent className="p-6 flex flex-col h-full" style={{ height: 'calc(100% - 12rem)' }}>
+								<div className="flex flex-col flex-grow">
+									<div className="mb-4">
+										<h3 className="text-xl font-bold text-purple-600 dark:text-purple-400 transition-all duration-300">
+											<Link href="https://theses.liacs.nl/2918" target="_blank" rel="noopener noreferrer" className="hover:underline">
+												Thesis: Quantum State Preparation
+											</Link>
+										</h3>
+									</div>
+									<p className="text-muted-foreground">
+										For my CS bachelor's thesis, I tackled a theoretical problem in quantum computing with no prior background. I self-taught all concepts, designed and executed research independently, and built a C++ repository for quantum state preparation algorithms.
+									</p>
 								</div>
-								<p className="text-muted-foreground">
-									For my CS bachelor's thesis, I tackled a theoretical problem in quantum computing with no prior background. I self-taught all concepts, designed and executed research independently, and built a C++ repository for quantum state preparation algorithms.
-								</p>
-							</div>
-							<div className="mt-auto pt-6">
-								<div className="flex flex-wrap gap-2 justify-center mb-4">
-									<span className="inline-flex items-center rounded-full bg-purple-100/50 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 transition-all duration-300 group-hover:bg-purple-200/70 dark:group-hover:bg-purple-800/70">
-										C++
-									</span>
-									<span className="inline-flex items-center rounded-full bg-indigo-100/50 px-2.5 py-0.5 text-xs font-medium text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 transition-all duration-300 group-hover:bg-indigo-200/70 dark:group-hover:bg-indigo-800/70">
-										Quantum Algorithms
-									</span>
-									<span className="inline-flex items-center rounded-full bg-blue-100/50 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 transition-all duration-300 group-hover:bg-blue-200/70 dark:group-hover:bg-blue-800/70">
-										Research
-									</span>
+								<div className="mt-auto pt-6">
+									<div className="flex flex-wrap gap-2 justify-center mb-4">
+										<span className="inline-flex items-center rounded-full bg-purple-100/50 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 transition-all duration-300 group-hover:bg-purple-200/70 dark:group-hover:bg-purple-800/70">
+											C++
+										</span>
+										<span className="inline-flex items-center rounded-full bg-indigo-100/50 px-2.5 py-0.5 text-xs font-medium text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 transition-all duration-300 group-hover:bg-indigo-200/70 dark:group-hover:bg-indigo-800/70">
+											Quantum Algorithms
+										</span>
+										<span className="inline-flex items-center rounded-full bg-blue-100/50 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 transition-all duration-300 group-hover:bg-blue-200/70 dark:group-hover:bg-blue-800/70">
+											Research
+										</span>
+									</div>
+									<div className="flex gap-2 justify-center">
+										<Button
+											variant="outline"
+											size="sm"
+											className="border-purple-500 hover:bg-purple-500 hover:text-white dark:border-purple-600 dark:hover:bg-purple-600 transition-all duration-300 inline-flex items-center gap-1"
+											asChild
+										>
+											<Link href="https://theses.liacs.nl/2918" target="_blank" rel="noopener noreferrer">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5 mr-1">
+													<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+													<polyline points="14 2 14 8 20 8"></polyline>
+												</svg>
+												<span>View Thesis</span>
+											</Link>
+										</Button>
+									</div>
 								</div>
-								<div className="flex gap-2 justify-center">
-									<Button
-										variant="outline"
-										size="sm"
-										className="border-purple-500 hover:bg-purple-500 hover:text-white dark:border-purple-600 dark:hover:bg-purple-600 transition-all duration-300 inline-flex items-center gap-1"
-										asChild
-									>
-										<Link href="https://theses.liacs.nl/2918" target="_blank" rel="noopener noreferrer">
-											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5 mr-1">
-												<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-												<polyline points="14 2 14 8 20 8"></polyline>
-											</svg>
-											<span>View Thesis</span>
-										</Link>
-									</Button>
-								</div>
-							</div>
-						</CardContent>
-					</Card>
-				</div>
+							</CardContent>
+						</Card>
+					</div>
 
-				<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 w-full">
-					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full max-w-full">
+					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
 						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-blue-300 hover:shadow-[0_12px_30px_rgba(30,_150,_230,_0.4)] dark:border-blue-900 dark:bg-slate-900/50 dark:hover:border-blue-800 animate-scale-in h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
@@ -143,7 +143,7 @@ export function ProjectsSection() {
 						</Card>
 					</div>
 
-					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full max-w-full">
+					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
 						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-amber-300 hover:shadow-[0_12px_30px_rgba(251,_191,_36,_0.4)] dark:border-amber-900 dark:bg-slate-900/50 dark:hover:border-amber-800 animate-scale-in delay-300 h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-yellow-500/20 to-orange-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
@@ -203,7 +203,7 @@ export function ProjectsSection() {
 						</Card>
 					</div>
 
-					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full max-w-full">
+					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
 						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-green-300 hover:shadow-[0_12px_30px_rgba(30,_215,_96,_0.4)] dark:border-green-900 dark:bg-slate-900/50 dark:hover:border-green-800 animate-scale-in delay-100 h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-green-400/20 to-emerald-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
@@ -270,7 +270,7 @@ export function ProjectsSection() {
 						</Card>
 					</div>
 
-					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] h-full max-w-full">
+					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
 						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-sm shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(30,_150,_230,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-100 h-full transition-all duration-500">
 							<div className="relative h-48 overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>

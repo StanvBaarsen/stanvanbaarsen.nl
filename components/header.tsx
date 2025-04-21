@@ -1,6 +1,6 @@
 "use client"
 
-import { Github, Linkedin, Menu, X } from "lucide-react"
+import { Github, Linkedin, Menu, X, ChevronUp } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
@@ -14,6 +14,7 @@ interface HeaderProps {
 export function Header({ activeSection, scrollToSection }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRefs = useRef<{[key: string]: HTMLAnchorElement | null}>({
     about: null,
@@ -29,6 +30,13 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
         setScrolled(true);
       } else {
         setScrolled(false);
+      }
+      
+      // Show scroll to top button when scrolled down 500px
+      if (offset > 500) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
       }
       
       // Calculate scroll progress
@@ -64,140 +72,100 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
     setMobileMenuOpen(false);
   };
 
+  // Add scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 w-full backdrop-blur-xl transition-all duration-300 ${
-      scrolled 
-        ? 'border-b border-blue-100/40 dark:border-blue-900/40 bg-white/90 dark:bg-slate-950/90 py-1 shadow-sm' 
-        : 'bg-transparent py-2'
-    }`}>
-      {/* Scroll Progress Bar */}
-      <div className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 transition-transform duration-150 ease-out"
-           style={{ width: '100%', transform: `scaleX(${scrollProgress})`, transformOrigin: 'left' }}></div>
-      
-      {/* Fancy gradient underline */}
-      <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-teal-500/40 to-transparent"></div>
-      
-      {/* Subtle glass overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/10 via-white/10 to-sky-50/10 dark:from-blue-950/10 dark:via-slate-950/10 dark:to-sky-950/10 opacity-70"></div>
-      
-      <div className="container mx-auto flex h-16 items-center relative z-10 max-w-full px-4">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link href="/" className="group mr-8 flex items-center space-x-2 interactive-hover">
-            <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-teal-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
-              <span className="font-bold text-white text-sm">SB</span>
-            </div>
-            <span className="font-bold text-lg bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent transition-all duration-300">
-              Stan van Baarsen
-            </span>
-          </Link>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1 text-sm font-medium relative">
-            {/* Moving active indicator */}
-            <div 
-              ref={indicatorRef}
-              className="absolute h-8 rounded-full bg-blue-100/60 dark:bg-blue-900/30 -z-10 transition-all duration-300 ease-in-out"
-            ></div>
-            
-            <Link
-              ref={(el) => { navRefs.current.about = el; }}
-              href="#about"
-              onClick={(e) => handleNavClick(e, "about")}
-              className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
-                activeSection === "about" 
-                  ? "text-blue-600 dark:text-blue-400 font-semibold" 
-                  : "text-foreground/70 hover:text-foreground"
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              ref={(el) => { navRefs.current.projects = el; }}
-              href="#projects"
-              onClick={(e) => handleNavClick(e, "projects")}
-              className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
-                activeSection === "projects" 
-                  ? "text-blue-600 dark:text-blue-400 font-semibold" 
-                  : "text-foreground/70 hover:text-foreground"
-              }`}
-            >
-              Projects
-            </Link>
-            <Link
-              ref={(el) => { navRefs.current.contact = el; }}
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "contact")}
-              className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
-                activeSection === "contact" 
-                  ? "text-blue-600 dark:text-blue-400 font-semibold" 
-                  : "text-foreground/70 hover:text-foreground"
-              }`}
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
+    <>
+      <header className={`fixed top-0 inset-x-0 z-50 w-full backdrop-blur-xl transition-all duration-300 ${
+        scrolled 
+          ? 'border-b border-blue-100/40 dark:border-blue-900/40 bg-white/90 dark:bg-slate-950/90 py-1 shadow-sm' 
+          : 'bg-transparent py-2'
+      }`}>
+        {/* Scroll Progress Bar */}
+        <div className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 transition-transform duration-150 ease-out"
+             style={{ width: '100%', transform: `scaleX(${scrollProgress})`, transformOrigin: 'left' }}></div>
         
-        {/* Right side - social icons and theme toggle */}
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <div className="hidden md:flex items-center gap-3">
-            <SocialButton href="https://github.com/StanvBaarsen" icon={<Github />} label="GitHub" />
-            <SocialButton href="https://linkedin.com/in/stan-van-baarsen" icon={<Linkedin />} label="LinkedIn" />
-            <SocialButton href="/resume.pdf" icon={
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <line x1="10" y1="9" x2="8" y2="9"></line>
-              </svg>
-            } label="Resume" />
-            <div className="w-px h-6 bg-slate-200 dark:bg-slate-800 mx-1"></div>
-            <ThemeToggle />
+        {/* Fancy gradient underline */}
+        <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-teal-500/40 to-transparent"></div>
+        
+        {/* Subtle glass overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/10 via-white/10 to-sky-50/10 dark:from-blue-950/10 dark:via-slate-950/10 dark:to-sky-950/10 opacity-70"></div>
+        
+        <div className="container mx-auto flex h-16 items-center relative z-10 max-w-full px-4">
+          {/* Logo */}
+          <div className="flex items-center">
+            <Link 
+              href="#" 
+              onClick={scrollToTop}
+              className="group mr-8 flex items-center space-x-2 interactive-hover cursor-pointer"
+            >
+              <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-teal-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
+                <span className="font-bold text-white text-sm">SB</span>
+              </div>
+              <span className="relative font-bold text-lg group-hover:scale-[1.01] inline-block transition-all duration-300 ease-in-out">
+                <span className="absolute -inset-0.5 blur-md bg-gradient-to-r from-blue-400/20 via-sky-400/20 to-teal-400/20 opacity-0 group-hover:opacity-70 dark:from-blue-400/10 dark:via-sky-400/10 dark:to-teal-400/10 rounded-lg transition-all duration-300"></span>
+                <span className="relative z-10 bg-gradient-to-r from-blue-600 to-teal-600 group-hover:from-blue-500 group-hover:to-teal-500 bg-clip-text text-transparent transition-all duration-300">
+                  Stan van Baarsen
+                </span>
+              </span>
+            </Link>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-1 text-sm font-medium relative">
+              {/* Moving active indicator */}
+              <div 
+                ref={indicatorRef}
+                className="absolute h-8 rounded-full bg-blue-100/60 dark:bg-blue-900/30 -z-10 transition-all duration-300 ease-in-out"
+              ></div>
+              
+              <Link
+                ref={(el) => { navRefs.current.about = el; }}
+                href="#about"
+                onClick={(e) => handleNavClick(e, "about")}
+                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
+                  activeSection === "about" 
+                    ? "text-blue-600 dark:text-blue-400 font-semibold" 
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+              >
+                About
+              </Link>
+              <Link
+                ref={(el) => { navRefs.current.projects = el; }}
+                href="#projects"
+                onClick={(e) => handleNavClick(e, "projects")}
+                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
+                  activeSection === "projects" 
+                    ? "text-blue-600 dark:text-blue-400 font-semibold" 
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+              >
+                Projects
+              </Link>
+              <Link
+                ref={(el) => { navRefs.current.contact = el; }}
+                href="#contact"
+                onClick={(e) => handleNavClick(e, "contact")}
+                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
+                  activeSection === "contact" 
+                    ? "text-blue-600 dark:text-blue-400 font-semibold" 
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+              >
+                Contact
+              </Link>
+            </nav>
           </div>
           
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="interactive-hover md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-            <span className="sr-only">Toggle menu</span>
-          </Button>
-        </div>
-      </div>
-      
-      {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden pt-20 px-4 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl animate-fade-in">
-          <nav className="flex flex-col items-center space-y-6 pt-8">
-            <MobileNavLink 
-              href="#about" 
-              label="About" 
-              active={activeSection === "about"} 
-              onClick={(e) => handleNavClick(e, "about")} 
-            />
-            <MobileNavLink 
-              href="#projects" 
-              label="Projects" 
-              active={activeSection === "projects"} 
-              onClick={(e) => handleNavClick(e, "projects")} 
-            />
-            <MobileNavLink 
-              href="#contact" 
-              label="Contact" 
-              active={activeSection === "contact"} 
-              onClick={(e) => handleNavClick(e, "contact")} 
-            />
-            
-            <div className="flex items-center gap-6 pt-6">
+          {/* Right side - social icons and theme toggle */}
+          <div className="flex flex-1 items-center justify-end space-x-2">
+            <div className="hidden md:flex items-center gap-3">
               <SocialButton href="https://github.com/StanvBaarsen" icon={<Github />} label="GitHub" />
               <SocialButton href="https://linkedin.com/in/stan-van-baarsen" icon={<Linkedin />} label="LinkedIn" />
               <SocialButton href="/resume.pdf" icon={
@@ -209,12 +177,80 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
                   <line x1="10" y1="9" x2="8" y2="9"></line>
                 </svg>
               } label="Resume" />
+              <div className="w-px h-6 bg-slate-200 dark:bg-slate-800 mx-1"></div>
               <ThemeToggle />
             </div>
-          </nav>
+            
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="interactive-hover md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </div>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-40 md:hidden pt-20 px-4 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl animate-fade-in">
+            <nav className="flex flex-col items-center space-y-6 pt-8">
+              <MobileNavLink 
+                href="#about" 
+                label="About" 
+                active={activeSection === "about"} 
+                onClick={(e) => handleNavClick(e, "about")} 
+              />
+              <MobileNavLink 
+                href="#projects" 
+                label="Projects" 
+                active={activeSection === "projects"} 
+                onClick={(e) => handleNavClick(e, "projects")} 
+              />
+              <MobileNavLink 
+                href="#contact" 
+                label="Contact" 
+                active={activeSection === "contact"} 
+                onClick={(e) => handleNavClick(e, "contact")} 
+              />
+              
+              <div className="flex items-center gap-6 pt-6">
+                <SocialButton href="https://github.com/StanvBaarsen" icon={<Github />} label="GitHub" />
+                <SocialButton href="https://linkedin.com/in/stan-van-baarsen" icon={<Linkedin />} label="LinkedIn" />
+                <SocialButton href="/resume.pdf" icon={
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <line x1="10" y1="9" x2="8" y2="9"></line>
+                  </svg>
+                } label="Resume" />
+                <ThemeToggle />
+              </div>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* Scroll to top button - moved outside the header component */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600 transition-all duration-300 hover:scale-110 hover:shadow-blue-400/30 hover:shadow-xl animate-fade-in"
+          aria-label="Scroll to top"
+        >
+          <ChevronUp className="h-5 w-5" />
+        </button>
       )}
-    </header>
+    </>
   )
 }
 
