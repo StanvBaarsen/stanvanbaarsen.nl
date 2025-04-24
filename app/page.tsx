@@ -126,8 +126,6 @@ export default function Home() {
 				/>
 				
 				<div className="fixed inset-0 z-0 pointer-events-none">
-					<div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-[0.2] dark:opacity-[0.15]"></div>
-					
 					<div className="absolute left-0 top-64 h-[40rem] w-[40rem] rounded-full bg-gradient-to-b from-blue-100/40 to-cyan-100/40 blur-3xl dark:from-blue-900/20 dark:to-cyan-900/20 animate-float"></div>
 					<div className="absolute right-0 bottom-64 h-[35rem] w-[35rem] rounded-full bg-gradient-to-tr from-teal-100/30 to-blue-100/30 blur-3xl dark:from-teal-900/20 dark:to-blue-900/20 animate-float [animation-delay:2000ms]"></div>
 					<div className="absolute top-1/2 left-1/4 h-[25rem] w-[25rem] rounded-full bg-gradient-to-r from-cyan-100/30 to-sky-100/30 blur-3xl dark:from-cyan-900/15 dark:to-sky-900/15 animate-float [animation-delay:1000ms]"></div>

@@ -5,7 +5,6 @@ import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-// Form validation schema
 const formSchema = z.object({
 	name: z.string().min(2, { message: "Name must be at least 2 characters." }),
 	email: z.string().email({ message: "Please enter a valid email address." }),
@@ -15,10 +14,8 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>
 
 export async function submitContactForm(prevState: any, formData: FormData) {
-	// Validate form data
 	const validatedFields = formSchema.safeParse(formData)
 
-	// Return early if form validation fails
 	if (!validatedFields.success) {
 		return {
 			success: false,
@@ -30,7 +27,6 @@ export async function submitContactForm(prevState: any, formData: FormData) {
 	try {
 		const { name, email, message } = validatedFields.data
 
-		// Send email using Resend
 		await resend.emails.send({
 			from: "Contact Form <contactform@stanvanbaarsen.nl>",
 			to: process.env.CONTACT_EMAIL!,
@@ -44,7 +40,6 @@ export async function submitContactForm(prevState: any, formData: FormData) {
       `,
 		})
 
-		// Return success response
 		return {
 			success: true,
 			message: "Thank you for your message! I'll get back to you soon.",
