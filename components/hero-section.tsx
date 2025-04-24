@@ -32,7 +32,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 							</span>
 							!
 						</h1>
-						<p className={`mt-4 max-w-[700px] text-center text-lg text-muted-foreground md:text-left transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+						<p className={`mt-4 max-w-[700px] text-left text-lg text-muted-foreground transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							Student • Software Engineer • Building Fig
 						</p>
 						

@@ -62,7 +62,28 @@ export default function Home() {
 		e.preventDefault()
 		const element = document.getElementById(sectionId)
 		if (element) {
-			element.scrollIntoView({ behavior: "smooth" })
+			const start = window.pageYOffset;
+			const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+			const distance = targetPosition - start;
+			const duration = 1500; // Longer duration for slower scroll (in ms)
+			let startTime: number | null = null;
+
+			function scrollAnimation(currentTime: number) {
+				if (startTime === null) startTime = currentTime;
+				const timeElapsed = currentTime - startTime;
+				const progress = Math.min(timeElapsed / duration, 1);
+				
+				// Easing function for smoother start/end
+				const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+				
+				window.scrollTo(0, start + distance * ease(progress));
+				
+				if (timeElapsed < duration) {
+					requestAnimationFrame(scrollAnimation);
+				}
+			}
+			
+			requestAnimationFrame(scrollAnimation);
 		}
 	}
 
