@@ -30,6 +30,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
 		await resend.emails.send({
 			from: "Contact Form <contactform@stanvanbaarsen.nl>",
 			to: process.env.CONTACT_EMAIL!,
+			replyTo: email,
 			subject: `New Contact Form Submission from ${name}`,
 			html: `
         <!DOCTYPE html>
