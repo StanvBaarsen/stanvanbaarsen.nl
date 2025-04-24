@@ -30,10 +30,10 @@ export function ContactSection() {
                   <Mail className="h-5 w-5" />
                 </div>
                 <Link
-                  href="mailto:stanvanbaarsen@hotmail.com"
+                  href="mailto:info@stanvanbaarsen.nl"
                   className="transition-colors hover:text-blue-500 dark:hover:text-blue-400"
                 >
-                  stanvanbaarsen@hotmail.com
+                  info@stanvanbaarsen.nl
                 </Link>
               </div>
               <div className="flex items-center gap-3 group">
