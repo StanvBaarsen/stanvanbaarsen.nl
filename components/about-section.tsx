@@ -51,7 +51,7 @@ export function AboutSection() {
 									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400">
 										<Award className="w-5 h-5" />
 									</div>
-									<h3 className="text-sm font-semibold">Passion</h3>
+									<h3 className="text-sm font-semibold">Passions</h3>
 									<p className="text-sm text-muted-foreground text-center md:text-left">European innovation, AI regulation, poltics, climate and digital sovereignty</p>
 								</div>
 							</div>
@@ -59,7 +59,7 @@ export function AboutSection() {
 							<div className="w-full h-px bg-gradient-to-r from-transparent via-blue-200 dark:via-blue-800 to-transparent"></div>
 
 							<p className="leading-7 text-lg">
-								I completed two bachelor's degrees — in Computer Science at Leiden University and International Business Administration at Vrije Universiteit Amsterdam — with a focus on political and public economics. I also studied abroad in New York to broaden my global perspective.
+								I completed two bachelor's degrees, in Computer Science at Leiden University and International Business Administration at Vrije Universiteit Amsterdam, with a focus on political and public economics. I also studied abroad in New York to broaden my global perspective.
 							</p>
 
 							<div className="flex justify-center">

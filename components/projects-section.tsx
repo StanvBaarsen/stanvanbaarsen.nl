@@ -292,7 +292,7 @@ export function ProjectsSection() {
 										</h3>
 									</div>
 									<p className="text-muted-foreground">
-										Led all IT operations for Timmerdorp Heiloo (an annual event) with Stephan Hoogland, including building and maintaining the website, web shop, and mobile app.
+										Together with Stephan Hoogland, we manage all IT operations for Timmerdorp Heiloo (an annual event), including building and maintaining the website, web shop, and mobile app.
 									</p>
 								</div>
 								<div className="mt-auto pt-6">
