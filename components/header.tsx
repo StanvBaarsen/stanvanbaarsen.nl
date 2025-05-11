@@ -198,10 +198,9 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
           </div>
         </div>
         
-        {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-40 md:hidden pt-20 px-4 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl animate-fade-in">
-            <nav className="flex flex-col items-center space-y-6 pt-8">
+            <nav className="flex flex-col items-center space-y-6 pt-8 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
               <MobileNavLink 
                 href="#about" 
                 label="About" 
@@ -221,7 +220,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
                 onClick={(e) => handleNavClick(e, "contact")} 
               />
               
-              <div className="flex items-center gap-6 pt-6">
+              <div className="flex items-center gap-6 pt-6 pb-8">
                 <SocialButton href="https://github.com/StanvBaarsen" icon={<Github />} label="GitHub" />
                 <SocialButton href="https://linkedin.com/in/stan-van-baarsen" icon={<Linkedin />} label="LinkedIn" />
                 <SocialButton href="/resume.pdf" icon={

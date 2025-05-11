@@ -52,7 +52,7 @@ export function AboutSection() {
 										<Award className="w-5 h-5" />
 									</div>
 									<h3 className="text-sm font-semibold">Passions</h3>
-									<p className="text-sm text-muted-foreground text-center md:text-left">European innovation, AI regulation, poltics, climate and digital sovereignty</p>
+									<p className="text-sm text-muted-foreground text-center md:text-left">European innovation, AI regulation, politics, climate and digital sovereignty</p>
 								</div>
 							</div>
 
