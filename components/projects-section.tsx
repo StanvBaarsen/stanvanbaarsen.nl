@@ -84,7 +84,7 @@ export function ProjectsSection() {
 									src="/fig-logo-landscape.png"
 									width={500}
 									height={300}
-									alt="Fig logo"
+									alt="FIG logo"
 									className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
@@ -94,21 +94,18 @@ export function ProjectsSection() {
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300">
 											<Link href="https://getfig.netlify.app" target="_blank" rel="noopener noreferrer" className="hover:underline">
-												Fig: AI-Powered Career Exploration
+												FIG: AI-Powered Political Intelligence
 											</Link>
 										</h3>
 									</div>
 									<p className="text-muted-foreground">
-										An AI-driven and community-based career exploration platform that helps users navigate their paths through personalized guidance, structured roadmaps, and industry-specific insights.
+										An AI-driven political intelligence platform that delivers real-time insights, briefings, and strategic analysis by automating the way professionals track legislation, debates, and public policy across borders.
 									</p>
 								</div>
 								<div className="mt-auto pt-6">
 									<div className="flex flex-wrap gap-2 justify-center mb-4">
 										<span className="inline-flex items-center rounded-full bg-cyan-100/50 px-2.5 py-0.5 text-xs font-medium text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 transition-all duration-300 group-hover:bg-cyan-200/70 dark:group-hover:bg-cyan-800/70">
-											React Native
-										</span>
-										<span className="inline-flex items-center rounded-full bg-blue-100/50 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 transition-all duration-300 group-hover:bg-blue-200/70 dark:group-hover:bg-blue-800/70">
-											Django
+											Vite
 										</span>
 										<span className="inline-flex items-center rounded-full bg-teal-100/50 px-2.5 py-0.5 text-xs font-medium text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 transition-all duration-300 group-hover:bg-teal-200/70 dark:group-hover:bg-teal-800/70">
 											PostgreSQL
@@ -121,20 +118,9 @@ export function ProjectsSection() {
 											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
 											asChild
 										>
-											<Link href="https://getfig.netlify.app" target="_blank" rel="noopener noreferrer">
+											<Link href="https://figgov.netlify.app" target="_blank" rel="noopener noreferrer">
 												<Globe className="h-3.5 w-3.5 mr-1" />
 												<span>Landing Page</span>
-											</Link>
-										</Button>
-										<Button
-											variant="outline"
-											size="sm"
-											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
-											asChild
-										>
-											<Link href="https://instagram.com/getfigapp" target="_blank" rel="noopener noreferrer">
-												<Instagram className="h-3.5 w-3.5 mr-1" />
-												<span>Instagram</span>
 											</Link>
 										</Button>
 									</div>
