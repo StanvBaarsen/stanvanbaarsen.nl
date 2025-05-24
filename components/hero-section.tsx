@@ -29,28 +29,6 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 
 	return (
 		<section id="home" className="relative overflow-hidden min-h-[85vh] flex items-center pt-14">
-			{/* New SVG Background Elements Container */}
-			<div ref={svgBgRef} className="absolute inset-0 overflow-hidden z-0"> {/* Added ref */}
-				{/* Orbiting Circles */}
-				<svg viewBox="0 0 400 200" className="absolute w-full h-full opacity-20 dark:opacity-10 animate-orbit-1">
-					<circle cx="100" cy="100" r="50" stroke="hsl(var(--primary))" strokeWidth="1" fill="none" />
-				</svg>
-				<svg viewBox="0 0 400 200" className="absolute w-full h-full opacity-20 dark:opacity-10 animate-orbit-2">
-					<ellipse cx="200" cy="100" rx="80" ry="30" stroke="hsl(var(--primary))" strokeWidth="1" fill="hsl(var(--primary)/0.1)" />
-				</svg>
-
-				{/* Floating Triangles - using SVG for easier rotation origin */}
-				<svg width="20" height="20" className="absolute top-[10%] left-[15%] animate-subtle-rotate-float opacity-30 dark:opacity-20">
-					<polygon points="10,0 0,20 20,20" fill="hsl(var(--accent)/0.3)" stroke="hsl(var(--accent))" strokeWidth="1"/>
-				</svg>
-				<svg width="25" height="25" className="absolute top-[70%] left-[80%] animate-subtle-rotate-float animation-delay-2000 opacity-30 dark:opacity-20">
-					<polygon points="12.5,0 0,25 25,25" fill="hsl(var(--accent)/0.3)" stroke="hsl(var(--accent))" strokeWidth="1"/>
-				</svg>
-				<svg width="15" height="15" className="absolute top-[40%] left-[50%] animate-subtle-rotate-float animation-delay-4000 opacity-20 dark:opacity-10">
-					<polygon points="7.5,0 0,15 15,15" fill="hsl(var(--accent)/0.3)" stroke="hsl(var(--accent))" strokeWidth="1"/>
-				</svg>
-			</div>
-			
 			<div className="container mx-auto relative z-10 px-4 py-16 md:px-6 md:py-24 lg:py-32 w-full">
 				<div className="grid grid-cols-1 lg:grid-cols-6 gap-10 items-center">
 					<div className="lg:col-span-4 flex flex-col">
