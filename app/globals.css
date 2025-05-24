@@ -14,7 +14,7 @@
   }
 }
 
-@keyframes particle-float {
+@keyframes particle-float { /* Used in app/page.tsx for particles */
   0% {
     transform: translateY(0) translateX(0);
   }
@@ -32,22 +32,116 @@
   }
 }
 
+/* Animations for Hero SVG Background */
+@keyframes orbit-1 {
+  0% { transform: translate(10%, 20%) scale(0.8); opacity: 0.7; }
+  25% { transform: translate(30%, -10%) scale(1); opacity: 1; }
+  50% { transform: translate(50%, 15%) scale(0.9); opacity: 0.8; }
+  75% { transform: translate(20%, 40%) scale(1); opacity: 1; }
+  100% { transform: translate(10%, 20%) scale(0.8); opacity: 0.7; }
+}
+
+@keyframes orbit-2 {
+  0% { transform: translate(-20%, -15%) scale(1); opacity: 1; }
+  25% { transform: translate(0%, 20%) scale(0.8); opacity: 0.7; }
+  50% { transform: translate(20%, -10%) scale(1); opacity: 1; }
+  75% { transform: translate(-10%, -25%) scale(0.9); opacity: 0.8; }
+  100% { transform: translate(-20%, -15%) scale(1); opacity: 1; }
+}
+
+@keyframes subtle-rotate-float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(90deg); }
+  50% { transform: translateY(0px) rotate(180deg); }
+  75% { transform: translateY(15px) rotate(270deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Animation for Hero CTA Icon */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Keyframes for Project Card Animated Border */
+@keyframes rotate-gradient-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Scroll-triggered animation keyframes */
+@keyframes slideInFromLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom { /* Can be same as Tailwind's slide-up if desired */
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* Note: scaleUp is very similar to Tailwind's scale-in, will use that directly */
+
+
 .animate-gradient {
   background-size: 200% auto;
   animation: gradient 8s ease infinite;
 }
 
-.animate-particle {
+.animate-particle { /* Used in app/page.tsx for particles */
   animation: particle-float 15s infinite;
 }
 
+/* Animation Utilities for Hero SVG Background */
+.animate-orbit-1 {
+  animation: orbit-1 25s ease-in-out infinite;
+}
+
+.animate-orbit-2 {
+  animation: orbit-2 20s ease-in-out infinite;
+}
+
+.animate-subtle-rotate-float {
+  animation: subtle-rotate-float 18s linear infinite;
+}
+
+/* Utility for Hero CTA Icon wiggle on hover */
+.group-hover\\:animate-wiggle svg { /* Target SVG within the element that has group-hover */
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* Scroll-triggered animation utilities */
+.animate-slideInFromLeft {
+  animation: slideInFromLeft 0.7s ease-out forwards;
+}
+.animate-slideInFromRight {
+  animation: slideInFromRight 0.7s ease-out forwards;
+}
+.animate-slideInFromBottom {
+  animation: slideInFromBottom 0.7s ease-out forwards;
+}
+
+
+/* Common utility for delayed animations */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+
 /* Modern CSS Glass Effect */
 .glass-effect {
-  @apply bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg border border-white/20 dark:border-slate-800/20;
+  @apply bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg border border-white/20 dark:border-white/10; /* Refined dark mode border */
 }
 
 .glass-card {
-  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50 shadow-xl;
+  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-xl; /* Refined borders */
 }
 
 /* Enhance the cursor glow when hovering over interactive elements */
@@ -77,6 +171,42 @@ button:hover ~ .cursor-glow,
 .fancy-underline:hover::after {
   @apply scale-x-100;
 }
+
+/* Hero Button Border Sweep Effect */
+.btn-border-sweep {
+  @apply relative overflow-hidden; /* Ensure pseudo-element is contained */
+}
+
+.btn-border-sweep::after {
+  content: '';
+  @apply absolute -left-1/2 top-0 w-[200%] h-full transition-transform duration-500 ease-in-out;
+  background-image: linear-gradient(to right, transparent 25%, hsl(var(--primary)/0.8) 50%, transparent 75%);
+  transform: translateX(-100%); /* Initially hidden to the left */
+  z-index: 1; /* Below text/icon */
+}
+
+.group:hover .btn-border-sweep::after { /* Assuming button has 'group' class */
+  transform: translateX(0%);
+}
+
+/* Project Card Animated Gradient Border */
+.card-animated-gradient-border {
+  @apply relative p-px; /* Padding to create space for the border */
+}
+
+.card-animated-gradient-border::before {
+  content: "";
+  @apply absolute inset-0 -z-10 rounded-[inherit]; /* Inherit border-radius from parent */
+  background: conic-gradient(from var(--gradient-angle, 0deg), hsl(var(--primary)/0.7), hsl(var(--accent)/0.7), hsl(var(--primary)/0.7));
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.group:hover .card-animated-gradient-border::before {
+  opacity: 1;
+  animation: rotate-gradient-border 4s linear infinite; /* Apply rotation on hover */
+}
+
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
