@@ -84,7 +84,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
     <>
       <header className={`fixed top-0 inset-x-0 z-50 w-full backdrop-blur-xl transition-all duration-300 ${
         scrolled 
-          ? 'border-b border-blue-100/40 dark:border-blue-900/40 bg-white/90 dark:bg-slate-950/90 py-1 shadow-sm' 
+          ? 'border-b border-blue-100/40 dark:border-blue-900/40 bg-white/80 dark:bg-slate-950/80 py-1 shadow-sm'  /* Opacity from 90 to 80 */
           : 'bg-transparent py-2'
       }`}>
         {/* Scroll Progress Bar */}
@@ -185,13 +185,13 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <Button
               variant="ghost"
               size="icon"
-              className="interactive-hover md:hidden"
+              className="interactive-hover md:hidden group" /* Added group */
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
+                <X className="h-5 w-5 transition-transform duration-150 group-hover:rotate-12" />
               ) : (
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5 transition-transform duration-150 group-hover:rotate-12" />
               )}
               <span className="sr-only">Toggle menu</span>
             </Button>
@@ -199,8 +199,8 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
         </div>
         
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-40 md:hidden pt-20 px-4 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl animate-fade-in">
-            <nav className="flex flex-col items-center space-y-6 pt-8 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
+          <div className="fixed inset-0 z-40 md:hidden pt-20 px-4 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl animate-fade-in"> {/* Opacity from 95 to 85 */}
+            <nav className="flex flex-col items-center space-y-6 pt-8 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl"> {/* Opacity from 95 to 85 */}
               <MobileNavLink 
                 href="#about" 
                 label="About" 
