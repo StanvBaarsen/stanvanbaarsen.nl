@@ -7,16 +7,16 @@ export function AboutSection() {
 	return (
 		<section id="about" className="relative pb-8 overflow-hidden">
 			<div className="container mx-auto relative z-10 px-4 md:px-6 w-full max-w-full">
-				<div className="absolute -right-20 top-20 w-40 h-40 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
-				<div className="absolute -left-20 bottom-20 w-40 h-40 bg-cyan-100/50 dark:bg-cyan-900/20 rounded-full blur-3xl"></div>
+				<div className="absolute -right-20 top-20 w-40 h-40 bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-3xl animate-float"></div>
+				<div className="absolute -left-20 bottom-20 w-40 h-40 bg-cyan-100/50 dark:bg-cyan-900/20 rounded-full blur-3xl animate-float [animation-delay:1s]"></div>
 
-				<div className="mb-16 flex flex-col items-center text-center">
+				<div className="mb-16 flex flex-col items-center text-center animate-fade-in">
 					<div className="mb-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-50 to-sky-50 px-4 py-1.5 text-sm font-medium text-blue-700 dark:from-blue-900/50 dark:to-sky-900/50 dark:text-blue-300 shadow-sm border border-blue-100 dark:border-blue-800/40 backdrop-blur-sm">
 						<Sparkles className="h-3.5 w-3.5" />
 						<span>Background</span>
 					</div>
-					<h2 className="text-3xl font-bold tracking-tight md:text-5xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 dark:from-slate-50 dark:via-slate-200 dark:to-slate-300 bg-clip-text text-transparent mb-4">About me</h2>
-					<p className="max-w-2xl text-muted-foreground text-lg">Student at the University of Cambridge and builder focused on technology, policy, and entrepreneurship.</p>
+					<h2 className="text-3xl font-bold tracking-tight md:text-5xl bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 dark:from-blue-400 dark:via-sky-400 dark:to-teal-400 bg-clip-text text-transparent mb-4">About me</h2>
+					<p className="max-w-2xl text-muted-foreground text-base leading-relaxed">Student at the University of Cambridge and builder focused on technology, policy, and entrepreneurship.</p>
 				</div>
 
 				<div className="grid gap-12 md:grid-cols-2 items-center">
@@ -24,14 +24,14 @@ export function AboutSection() {
 						<div className="relative space-y-6 backdrop-blur-sm rounded-xl p-6 border border-blue-100/50 dark:border-blue-800/30 bg-white/30 dark:bg-slate-900/30 shadow-xl">
 							<div className="absolute -inset-px -z-10 bg-gradient-to-tr from-blue-100 to-sky-100/70 dark:from-blue-900/20 dark:to-sky-900/20 rounded-xl opacity-70"></div>
 
-							<p className="leading-7 text-lg">
+							<p className="text-base leading-relaxed">
 								I'm <span className="font-semibold">Stan van Baarsen</span>, currently studying a master's in Technology Policy at the University of Cambridge. After graduating this summer, I plan to focus full time on building a startup. I'm excited to build a venture that creates meaningful change at the intersection of technology, policy, and society.
 							</p>
 
 							<div className="w-full h-px bg-gradient-to-r from-transparent via-blue-200 dark:via-blue-800 to-transparent"></div>
 
 							<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-								<div className="flex flex-col gap-2 items-center md:items-start">
+								<div className="flex flex-col gap-3 items-center md:items-start">
 									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400">
 										<BookOpen className="w-5 h-5" />
 									</div>
@@ -39,7 +39,7 @@ export function AboutSection() {
 									<p className="text-sm text-muted-foreground text-center md:text-left">Technology Policy at Cambridge, Computer Science at Leiden & International Business at VU</p>
 								</div>
 
-								<div className="flex flex-col gap-2 items-center md:items-start">
+								<div className="flex flex-col gap-3 items-center md:items-start">
 									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-400">
 										<Code className="w-5 h-5" />
 									</div>
@@ -47,7 +47,7 @@ export function AboutSection() {
 									<p className="text-sm text-muted-foreground text-center md:text-left">Software Engineering, Web Development, Writing</p>
 								</div>
 
-								<div className="flex flex-col gap-2 items-center md:items-start">
+								<div className="flex flex-col gap-3 items-center md:items-start">
 									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400">
 										<Award className="w-5 h-5" />
 									</div>
@@ -58,7 +58,7 @@ export function AboutSection() {
 
 							<div className="w-full h-px bg-gradient-to-r from-transparent via-blue-200 dark:via-blue-800 to-transparent"></div>
 
-							<p className="leading-7 text-lg">
+							<p className="text-base leading-relaxed">
 								I completed two bachelor's degrees, in Computer Science at Leiden University and International Business Administration at Vrije Universiteit Amsterdam, with a focus on political and public economics. I also studied abroad in New York to broaden my global perspective.
 							</p>
 

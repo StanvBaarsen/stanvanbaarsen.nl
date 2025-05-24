@@ -116,12 +116,11 @@ export default function Home() {
 				{/* Enhanced mouse cursor glow effect */}
 				<div 
 					ref={mouseCursorRef}
-					className="cursor-glow pointer-events-none fixed z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-teal-400/30 blur-xl dark:from-blue-500/20 dark:via-sky-500/15 dark:to-teal-500/20 transition-all duration-300 ease-out"
+					className="cursor-glow pointer-events-none fixed z-10 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-400/30 via-sky-400/20 to-teal-400/30 blur-xl dark:from-blue-500/20 dark:via-sky-500/15 dark:to-teal-500/20 transition-all duration-300 ease-out opacity-70"
 					style={{ 
 						left: mousePosition.x, 
 						top: mousePosition.y, 
-						transform: `translate(-50%, -50%) scale(${mousePosition.x > 0 ? 1 : 0})`,
-						opacity: 0.7
+						transform: `translate(-50%, -50%) scale(${mousePosition.x > 0 ? 1 : 0})`
 					}}
 				/>
 				
@@ -142,7 +141,7 @@ export default function Home() {
 										top: `${particle.top}%`,
 										left: `${particle.left}%`,
 										opacity: particle.opacity,
-										animation: `float ${particle.duration}s linear infinite`,
+										animation: `particle-float ${particle.duration}s linear infinite`, /* Changed from 'float' to 'particle-float' */
 										animationDelay: `${particle.delay}s`
 									}}
 								/>
@@ -153,13 +152,13 @@ export default function Home() {
 				
 				<div className="relative z-10 mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
-					<div className="relative z-10">
+					<div className="relative z-10 py-16">
 						<AboutSection />
 					</div>
-					<div className="relative z-10">
+					<div className="relative z-10 py-16">
 						<ProjectsSection />
 					</div>
-					<div className="relative z-10"> 
+					<div className="relative z-10 py-16"> 
 						<ContactSection />
 					</div>
 				</div>

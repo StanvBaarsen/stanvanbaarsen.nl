@@ -19,7 +19,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 				<div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-sky-200 dark:bg-sky-700 rounded-full mix-blend-multiply filter blur-3xl animate-float opacity-70 [animation-delay:2000ms]"></div>
 			</div>
 			
-			<div className="container mx-auto relative z-10 px-4 py-16 pb-8 md:px-6 md:py-24 lg:py-32 w-full">
+			<div className="container mx-auto relative z-10 px-4 py-16 md:px-6 md:py-24 lg:py-32 w-full">
 				<div className="grid grid-cols-1 lg:grid-cols-6 gap-10 items-center">
 					<div className="lg:col-span-4 flex flex-col">
 						
@@ -32,7 +32,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 							</span>
 							!
 						</h1>
-						<p className={`mt-4 max-w-[700px] text-left text-lg text-muted-foreground transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+						<p className={`mt-4 max-w-[700px] text-left text-base text-muted-foreground transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							Student • Software Engineer • Building Fig
 						</p>
 						
@@ -49,7 +49,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 							</Button>
 							
 							<Button
-								className="interactive-hover relative overflow-hidden bg-transparent border-2 border-blue-200 dark:border-blue-800 text-foreground transition-all duration-300 ease-in-out hover:border-blue-400 hover:text-white dark:hover:border-blue-600 hover:scale-105 group px-6 py-6 h-12 rounded-xl"
+								className="interactive-hover relative overflow-hidden bg-transparent border-2 border-blue-200 dark:border-blue-800 text-foreground transition-all duration-300 ease-in-out hover:border-blue-400 hover:text-white dark:hover:border-blue-600 hover:scale-105 group px-6 py-6 h-12 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background"
 								asChild
 							>
 								<Link href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="relative flex items-center gap-2">
@@ -62,12 +62,12 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 						<div className={`mt-10 flex items-center gap-4 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							<span className="text-sm text-muted-foreground">Find me on</span>
 							<div className="flex gap-4">
-								<a href="https://github.com/stanvbaarsen" target="_blank" rel="noopener noreferrer" className="interactive-hover p-2 text-foreground hover:text-blue-600 transition-colors duration-200">
+								<a href="https://github.com/stanvbaarsen" target="_blank" rel="noopener noreferrer" className="interactive-hover p-2 text-foreground hover:text-blue-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background rounded-md">
 									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
 										<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
 									</svg>
 								</a>
-								<a href="https://linkedin.com/in/stan-van-baarsen" target="_blank" rel="noopener noreferrer" className="interactive-hover p-2 text-foreground hover:text-blue-600 transition-colors duration-200">
+								<a href="https://linkedin.com/in/stan-van-baarsen" target="_blank" rel="noopener noreferrer" className="interactive-hover p-2 text-foreground hover:text-blue-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background rounded-md">
 									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
 										<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
 										<rect x="2" y="9" width="4" height="12" />
