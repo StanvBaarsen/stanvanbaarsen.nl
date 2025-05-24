@@ -12,7 +12,7 @@ export function ContactSection() {
     >
       <div className="container mx-auto relative z-10 px-4 md:px-6 max-w-[1280px]">
         <div className="mb-16 flex flex-col items-center text-center">
-          <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 px-4 py-1.5 text-sm font-medium text-cyan-800 dark:from-cyan-900/50 dark:to-blue-900/50 dark:text-cyan-300 shadow-sm">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 px-4 py-1.5 text-sm font-medium text-cyan-800 dark:from-cyan-900/50 dark:to-blue-900/50 dark:text-cyan-300 shadow-sm">
             <MessageSquare className="h-3.5 w-3.5" />
             <span>Get in Touch</span>
           </div>
@@ -20,7 +20,7 @@ export function ContactSection() {
         </div>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="animate-slide-up delay-200">
-            <p className="mb-6 text-lg transition-colors duration-300">
+            <p className="mb-6 text-base leading-relaxed transition-colors duration-300">
               Interested in working together or have a question? Feel free to reach out through any of the channels
               below.
             </p>
@@ -31,7 +31,7 @@ export function ContactSection() {
                 </div>
                 <Link
                   href="mailto:info@stanvanbaarsen.nl"
-                  className="transition-colors hover:text-blue-500 dark:hover:text-blue-400"
+                  className="transition-colors hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background rounded-sm"
                 >
                   info@stanvanbaarsen.nl
                 </Link>
@@ -42,7 +42,7 @@ export function ContactSection() {
                 </div>
                 <Link
                   href="https://linkedin.com/in/stan-van-baarsen"
-                  className="transition-colors hover:text-blue-500 dark:hover:text-blue-400"
+                  className="transition-colors hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background rounded-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -55,7 +55,7 @@ export function ContactSection() {
                 </div>
                 <Link
                   href="https://github.com/stanvbaarsen"
-                  className="transition-colors hover:text-blue-500 dark:hover:text-blue-400"
+                  className="transition-colors hover:text-blue-500 dark:hover:text-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background rounded-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

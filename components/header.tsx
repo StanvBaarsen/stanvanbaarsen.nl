@@ -88,8 +88,8 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
           : 'bg-transparent py-2'
       }`}>
         {/* Scroll Progress Bar */}
-        <div className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 transition-transform duration-150 ease-out"
-             style={{ width: '100%', transform: `scaleX(${scrollProgress})`, transformOrigin: 'left' }}></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 transition-transform duration-150 ease-out"
+             style={{ transform: `scaleX(${scrollProgress})`, transformOrigin: 'left' }}></div>
         
         {/* Fancy gradient underline */}
         <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-teal-500/40 to-transparent"></div>
@@ -103,14 +103,14 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
             <Link 
               href="#" 
               onClick={scrollToTop}
-              className="group mr-8 flex items-center space-x-2 interactive-hover cursor-pointer"
+              className="group mr-8 flex items-center space-x-2 interactive-hover cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg"
             >
               <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-teal-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
                 <span className="font-bold text-white text-sm">SB</span>
               </div>
               <span className="relative font-bold text-lg group-hover:scale-[1.01] inline-block transition-all duration-300 ease-in-out">
                 <span className="absolute -inset-0.5 blur-md bg-gradient-to-r from-blue-400/20 via-sky-400/20 to-teal-400/20 opacity-0 group-hover:opacity-70 dark:from-blue-400/10 dark:via-sky-400/10 dark:to-teal-400/10 rounded-lg transition-all duration-300"></span>
-                <span className="relative z-10 bg-gradient-to-r from-blue-600 to-teal-600 group-hover:from-blue-500 group-hover:to-teal-500 bg-clip-text text-transparent transition-all duration-300">
+                <span className="relative z-10 bg-gradient-to-r from-blue-600 to-teal-600 group-hover:from-blue-500 group-hover:to-teal-500 dark:from-blue-400 dark:to-teal-400 dark:group-hover:from-blue-300 dark:group-hover:to-teal-300 bg-clip-text text-transparent transition-all duration-300">
                   Stan van Baarsen
                 </span>
               </span>
@@ -128,7 +128,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
                 ref={(el) => { navRefs.current.about = el; }}
                 href="#about"
                 onClick={(e) => handleNavClick(e, "about")}
-                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
+                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background ${
                   activeSection === "about" 
                     ? "text-blue-600 dark:text-blue-400 font-semibold" 
                     : "text-foreground/70 hover:text-foreground"
@@ -140,7 +140,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
                 ref={(el) => { navRefs.current.projects = el; }}
                 href="#projects"
                 onClick={(e) => handleNavClick(e, "projects")}
-                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
+                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background ${
                   activeSection === "projects" 
                     ? "text-blue-600 dark:text-blue-400 font-semibold" 
                     : "text-foreground/70 hover:text-foreground"
@@ -152,7 +152,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
                 ref={(el) => { navRefs.current.contact = el; }}
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "contact")}
-                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full ${
+                className={`interactive-hover transition-colors duration-300 px-4 py-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background ${
                   activeSection === "contact" 
                     ? "text-blue-600 dark:text-blue-400 font-semibold" 
                     : "text-foreground/70 hover:text-foreground"
@@ -269,10 +269,10 @@ function MobileNavLink({
     <Link
       href={href}
       onClick={onClick}
-      className={`text-xl font-medium py-2 px-6 rounded-full ${
+      className={`text-xl font-medium py-2 px-6 rounded-full transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background ${
         active 
           ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" 
-          : "text-foreground/70"
+          : "text-foreground/70 hover:bg-accent/20 dark:hover:bg-accent/30"
       }`}
     >
       {label}
@@ -293,7 +293,7 @@ function SocialButton({
     <Button
       variant="ghost"
       size="icon"
-      className="interactive-hover text-foreground/70 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 rounded-full"
+      className="interactive-hover text-foreground/70 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 rounded-full" /* Removed transition-all duration-300 to inherit from base Button */
       asChild
     >
       <Link href={href} target="_blank" rel="noopener noreferrer">
