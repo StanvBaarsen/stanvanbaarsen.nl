@@ -152,7 +152,7 @@ export default function Home() {
 				
 				<div className="relative z-10 mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
-					<div className="relative z-10 py-16">
+					<div className="relative z-10 pb-16">
 						<AboutSection />
 					</div>
 					<div className="relative z-10 py-16">

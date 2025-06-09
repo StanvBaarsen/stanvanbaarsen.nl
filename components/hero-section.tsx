@@ -29,7 +29,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 
 	return (
 		<section id="home" className="relative overflow-hidden min-h-[85vh] flex items-center pt-14">
-			<div className="container mx-auto relative z-10 px-4 py-16 md:px-6 md:py-24 lg:py-32 w-full">
+			<div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
 				<div className="grid grid-cols-1 lg:grid-cols-6 gap-10 items-center">
 					<div className="lg:col-span-4 flex flex-col">
 						

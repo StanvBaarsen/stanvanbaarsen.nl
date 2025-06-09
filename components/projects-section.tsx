@@ -94,12 +94,12 @@ export function ProjectsSection() {
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300">
 											<Link href="https://getfig.netlify.app" target="_blank" rel="noopener noreferrer" className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-												FIG: AI-Powered Political Intelligence
+												FIG: AI for Local Government
 											</Link>
 										</h3>
 									</div>
 									<p className="text-muted-foreground">
-										An AI-driven political intelligence platform that delivers real-time insights, briefings, and strategic analysis by automating the way professionals track legislation, debates, and public policy across borders.
+										Currently building a startup that provides AI services for local governments. More info coming soon!
 									</p>
 								</div>
 								<div className="mt-auto pt-6">
@@ -111,7 +111,7 @@ export function ProjectsSection() {
 											PostgreSQL
 										</span>
 									</div>
-									<div className="flex gap-2 justify-center">
+									{/* <div className="flex gap-2 justify-center">
 										<Button
 											variant="outline"
 											size="sm"
@@ -123,7 +123,7 @@ export function ProjectsSection() {
 												<span>Landing Page</span>
 											</Link>
 										</Button>
-									</div>
+									</div> */}
 								</div>
 							</CardContent>
 						</Card>
@@ -189,20 +189,20 @@ export function ProjectsSection() {
 						</Card>
 					</div>
 
-					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-green-300 hover:shadow-[0_12px_30px_rgba(30,_215,_96,_0.4)] dark:border-green-900 dark:bg-slate-900/50 dark:hover:border-green-800 animate-scale-in delay-100 h-full transition-all duration-500"> {/* backdrop-blur-sm to backdrop-blur-md */}
-							<div className="relative aspect-video overflow-hidden"> {/* Changed h-48 to aspect-video */}
+					{/* <div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
+						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-green-300 hover:shadow-[0_12px_30px_rgba(30,_215,_96,_0.4)] dark:border-green-900 dark:bg-slate-900/50 dark:hover:border-green-800 animate-scale-in delay-100 h-full transition-all duration-500">
+							<div className="relative aspect-video overflow-hidden">
 								<div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-green-400/20 to-emerald-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 								<Image
 									src="/spotifyplayer.png"
 									width={500}
 									height={300}
 									alt="Spotify Player"
-									className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110" /* Added transition-all, brightness, contrast */
+									className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 							</div>
-							<CardContent className="p-6 flex flex-col flex-grow"> {/* Removed style={{ height: 'calc(100% - 12rem)' }} */}
+							<CardContent className="p-6 flex flex-col flex-grow">
 								<div className="flex flex-col flex-grow">
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-green-600 dark:text-green-400 transition-all duration-300">
@@ -254,7 +254,7 @@ export function ProjectsSection() {
 								</div>
 							</CardContent>
 						</Card>
-					</div>
+					</div> */}
 
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
 						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(30,_150,_230,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-100 h-full transition-all duration-500"> {/* backdrop-blur-sm to backdrop-blur-md */}
