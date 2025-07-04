@@ -36,7 +36,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 						<h1 className={`text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl xl:text-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							Hi, I&apos;m{" "}
 							<span className="interactive-hover relative">
-								<span className="relative z-10 bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
+								<span className="relative z-10 text-blue-600 dark:text-blue-400">
 									Stan van Baarsen
 								</span>
 							</span>
@@ -48,18 +48,17 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 						
 						<div className={`mt-8 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							<Button
-								className="interactive-hover relative overflow-hidden bg-gradient-to-r from-blue-600 to-sky-600 text-white transition-all duration-300 ease-in-out shadow-lg hover:shadow-blue-500/25 hover:scale-105 group px-6 py-6 h-12 rounded-xl border border-sky-300/50 dark:border-sky-700/50 active:scale-[0.98] active:translate-y-px"
+								className="interactive-hover relative overflow-hidden bg-blue-600 text-white transition-all duration-300 ease-in-out shadow-lg hover:bg-blue-700 hover:scale-105 group px-6 py-6 h-12 rounded-xl border border-blue-600 dark:border-blue-600 active:scale-[0.98] active:translate-y-px"
 								asChild
 							>
-								<Link href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="relative flex items-center gap-2 group-hover:animate-wiggle">
-									<div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-sky-700 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
-									<MessageSquare className="h-4 w-4 relative z-10" /> {/* Icon will be targeted by group-hover:animate-wiggle's SVG selector */}
+								<Link href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="relative flex items-center gap-2">
+									<MessageSquare className="h-4 w-4 relative z-10" />
 									<span className="relative z-10">Get in touch</span>
 								</Link>
 							</Button>
 							
 							<Button
-								className="interactive-hover btn-border-sweep relative overflow-hidden bg-transparent border-2 border-blue-200 dark:border-blue-800 text-foreground transition-all duration-300 ease-in-out hover:border-transparent hover:text-white dark:hover:border-transparent dark:hover:text-white hover:scale-105 group px-6 py-6 h-12 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background active:scale-[0.98] active:translate-y-px"
+								className="interactive-hover relative overflow-hidden bg-transparent border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white hover:scale-105 group px-6 py-6 h-12 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background active:scale-[0.98] active:translate-y-px"
 								asChild
 							>
 								<Link href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="relative flex items-center gap-2">
@@ -89,20 +88,14 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 					</div>
 					
 					<div className={`lg:col-span-2 flex justify-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-						<div className="relative group interactive-hover">
-							<div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-blue-500/40 to-teal-500/40 blur-lg opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
-							<div className="absolute -inset-3 rounded-full bg-gradient-to-r from-blue-500/20 to-teal-500/20 blur-xl opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
-							<div className="absolute -inset-5 rounded-full bg-gradient-to-r from-blue-500/10 to-teal-500/10 blur-2xl opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
-							
-							<div className="absolute inset-0.5 rounded-full bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 opacity-75 group-hover:opacity-100 animate-spin-slow"></div>
-							
-							<div className="relative rounded-full bg-white dark:bg-slate-900 p-1.5">
+						<div className="relative">
+							<div className="relative rounded-full bg-white dark:bg-slate-900 p-1.5 border-2 border-blue-600 dark:border-blue-400">
 								<Image
 									src="/headshot.jpg"
 									alt="Stan van Baarsen"
 									width={240}
 									height={240}
-									className="relative z-10 rounded-full shadow-xl transition-all duration-500 group-hover:scale-[1.03]"
+									className="relative z-10 rounded-full shadow-xl"
 								/>
 							</div>
 						</div>

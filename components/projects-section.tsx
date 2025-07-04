@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ExternalLink, Github, Sparkles, Globe, Instagram, Atom } from "lucide-react"
+import { ExternalLink, Github, Globe, Instagram, Atom } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -11,26 +11,20 @@ export function ProjectsSection() {
 		<section id="projects" className="relative py-10 overflow-hidden w-full">
 			<div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1280px]">
 				<div className="mb-16 flex flex-col items-center text-center animate-fade-in">
-					<div className="mb-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 px-4 py-1.5 text-sm font-medium text-cyan-800 dark:from-cyan-900/50 dark:to-blue-900/50 dark:text-cyan-300 shadow-sm">
-						<Sparkles className="h-3.5 w-3.5" />
-						<span>Featured Projects</span>
-					</div>
-					<h2 className="text-3xl font-bold tracking-tight md:text-4xl bg-gradient-to-r from-blue-600 via-sky-600 to-teal-600 dark:from-blue-400 dark:via-sky-400 dark:to-teal-400 bg-clip-text text-transparent">My recent work</h2>
+					<h2 className="text-3xl font-bold tracking-tight md:text-4xl text-blue-600 dark:text-blue-400">My recent work</h2>
 				</div>
 
 				<div className="flex flex-wrap justify-center gap-8 w-full">
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group card-animated-gradient-border overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-purple-300 hover:shadow-[0_12px_30px_rgba(147,_51,_234,_0.4)] dark:border-purple-900 dark:bg-slate-900/50 dark:hover:border-purple-800 animate-scale-in delay-200 h-full transition-all duration-500"> {/* Added card-animated-gradient-border */}
-							<div className="relative aspect-video overflow-hidden"> {/* Changed h-48 to aspect-video */}
-								<div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-indigo-500/20 to-blue-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-								<div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30">
+						<Card className="group overflow-hidden border-purple-600 dark:border-purple-400 bg-white dark:bg-slate-900 shadow-lg hover:border-purple-500 hover:shadow-lg dark:hover:border-purple-300 animate-scale-in delay-200 h-full transition-all duration-500">
+							<div className="relative aspect-video overflow-hidden">
+								<div className="h-full w-full flex items-center justify-center bg-purple-100 dark:bg-purple-900/30">
 									<div className="flex items-center justify-center w-20 h-20 rounded-full bg-purple-200 dark:bg-purple-800/50 text-purple-600 dark:text-purple-400">
 										<Atom className="w-10 h-10" />
 									</div>
 								</div>
-								<div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 							</div>
-							<CardContent className="p-6 flex flex-col flex-grow"> {/* Removed style={{ height: 'calc(100% - 12rem)' }} as Card has h-full */}
+							<CardContent className="p-6 flex flex-col flex-grow">
 								<div className="flex flex-col flex-grow">
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-purple-600 dark:text-purple-400 transition-all duration-300">
@@ -40,18 +34,18 @@ export function ProjectsSection() {
 										</h3>
 									</div>
 									<p className="text-muted-foreground">
-										For my CS bachelor's thesis, I tackled a theoretical problem in quantum computing with no prior background. I self-taught all concepts, designed and executed research independently, and built a C++ repository for quantum state preparation algorithms.
+										For my computer science bachelor's thesis, I tackled a theoretical problem in quantum computing with no prior background. I self-taught all concepts, designed and executed research independently, and built a C++ repository for quantum state preparation algorithms.
 									</p>
 								</div>
 								<div className="mt-auto pt-6">
 									<div className="flex flex-wrap gap-2 justify-center mb-4">
-										<span className="inline-flex items-center rounded-full border border-transparent bg-purple-100/50 px-3 py-1 text-xs font-medium text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 transition-all duration-300 group-hover:bg-purple-200/80 group-hover:border-purple-500/50 dark:group-hover:bg-purple-800/80 dark:group-hover:border-purple-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-purple-100 dark:bg-purple-900/50 px-3 py-1 text-xs font-medium text-purple-800 dark:text-purple-300">
 											C++
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-indigo-100/50 px-3 py-1 text-xs font-medium text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 transition-all duration-300 group-hover:bg-indigo-200/80 group-hover:border-indigo-500/50 dark:group-hover:bg-indigo-800/80 dark:group-hover:border-indigo-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-indigo-100 dark:bg-indigo-900/50 px-3 py-1 text-xs font-medium text-indigo-800 dark:text-indigo-300">
 											Quantum Algorithms
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-blue-100/50 px-3 py-1 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 transition-all duration-300 group-hover:bg-blue-200/80 group-hover:border-blue-500/50 dark:group-hover:bg-blue-800/80 dark:group-hover:border-blue-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-blue-100 dark:bg-blue-900/50 px-3 py-1 text-xs font-medium text-blue-800 dark:text-blue-300">
 											Research
 										</span>
 									</div>
@@ -77,19 +71,17 @@ export function ProjectsSection() {
 					</div>
 
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-blue-300 hover:shadow-[0_12px_30px_rgba(30,_150,_230,_0.4)] dark:border-blue-900 dark:bg-slate-900/50 dark:hover:border-blue-800 animate-scale-in h-full transition-all duration-500"> {/* backdrop-blur-sm to backdrop-blur-md */}
-							<div className="relative aspect-video overflow-hidden"> {/* Changed h-48 to aspect-video */}
-								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+						<Card className="group overflow-hidden border-blue-600 dark:border-blue-400 bg-white dark:bg-slate-900 shadow-lg hover:border-blue-500 hover:shadow-lg dark:hover:border-blue-300 animate-scale-in h-full transition-all duration-500">
+							<div className="relative aspect-video overflow-hidden">
 								<Image
 									src="/fig-logo-landscape.png"
 									width={500}
 									height={300}
 									alt="FIG logo"
-									className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110" /* Added transition-all, brightness, contrast */
+									className="h-full w-full object-cover"
 								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 							</div>
-							<CardContent className="p-6 flex flex-col flex-grow"> {/* Removed style={{ height: 'calc(100% - 12rem)' }} */}
+							<CardContent className="p-6 flex flex-col flex-grow">
 								<div className="flex flex-col flex-grow">
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300">
@@ -104,36 +96,22 @@ export function ProjectsSection() {
 								</div>
 								<div className="mt-auto pt-6">
 									<div className="flex flex-wrap gap-2 justify-center mb-4">
-										<span className="inline-flex items-center rounded-full border border-transparent bg-cyan-100/50 px-3 py-1 text-xs font-medium text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 transition-all duration-300 group-hover:bg-cyan-200/80 group-hover:border-cyan-500/50 dark:group-hover:bg-cyan-800/80 dark:group-hover:border-cyan-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-cyan-100 dark:bg-cyan-900/50 px-3 py-1 text-xs font-medium text-cyan-800 dark:text-cyan-300">
 											Vite
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-teal-100/50 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 transition-all duration-300 group-hover:bg-teal-200/80 group-hover:border-teal-500/50 dark:group-hover:bg-teal-800/80 dark:group-hover:border-teal-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-teal-100 dark:bg-teal-900/50 px-3 py-1 text-xs font-medium text-teal-800 dark:text-teal-300">
 											PostgreSQL
 										</span>
 									</div>
-									{/* <div className="flex gap-2 justify-center">
-										<Button
-											variant="outline"
-											size="sm"
-											className="border-blue-500 hover:bg-blue-500 hover:text-white dark:border-blue-600 dark:hover:bg-blue-600 transition-all duration-300 inline-flex items-center gap-1"
-											asChild
-										>
-											<Link href="https://figgov.netlify.app" target="_blank" rel="noopener noreferrer">
-												<Globe className="h-3.5 w-3.5 mr-1" />
-												<span>Landing Page</span>
-											</Link>
-										</Button>
-									</div> */}
 								</div>
 							</CardContent>
 						</Card>
 					</div>
 
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-amber-300 hover:shadow-[0_12px_30px_rgba(251,_191,_36,_0.4)] dark:border-amber-900 dark:bg-slate-900/50 dark:hover:border-amber-800 animate-scale-in delay-300 h-full transition-all duration-500"> {/* backdrop-blur-sm to backdrop-blur-md */}
-							<div className="relative aspect-video overflow-hidden"> {/* Changed h-48 to aspect-video */}
-								<div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-yellow-500/20 to-orange-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-								<div className="h-full w-full flex items-center justify-center bg-gradient-to-r from-amber-100 to-yellow-100 dark:from-amber-900/30 dark:to-yellow-900/30">
+						<Card className="group overflow-hidden border-amber-600 dark:border-amber-400 bg-white dark:bg-slate-900 shadow-lg hover:border-amber-500 hover:shadow-lg dark:hover:border-amber-300 animate-scale-in delay-300 h-full transition-all duration-500">
+							<div className="relative aspect-video overflow-hidden">
+								<div className="h-full w-full flex items-center justify-center bg-amber-100 dark:bg-amber-900/30">
 									<div className="flex items-center justify-center w-20 h-20 rounded-full bg-amber-200 dark:bg-amber-800/50 text-amber-600 dark:text-amber-400">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10">
 											<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -141,9 +119,8 @@ export function ProjectsSection() {
 										</svg>
 									</div>
 								</div>
-								<div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 							</div>
-							<CardContent className="p-6 flex flex-col flex-grow"> {/* Removed style={{ height: 'calc(100% - 12rem)' }} */}
+							<CardContent className="p-6 flex flex-col flex-grow">
 								<div className="flex flex-col flex-grow">
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 transition-all duration-300">
@@ -153,18 +130,18 @@ export function ProjectsSection() {
 										</h3>
 									</div>
 									<p className="text-muted-foreground">
-										For my international business thesis, I built a simulation model to analyze the distributional effects of the lowering of the imputed rent tax in the Netherlands between 2018 and 2023. The findings showed that most of the tax relief went to the wealthiest 20%, while house prices rose—making homeownership harder for new buyers.
+										For my international business bachelor's thesis, I built a simulation model to analyze the distributional effects of the lowering of the imputed rent tax in the Netherlands between 2018 and 2023. The findings showed that most of the tax relief went to the wealthiest 20%, while house prices rose—making homeownership harder for new buyers.
 									</p>
 								</div>
 								<div className="mt-auto pt-6">
 									<div className="flex flex-wrap gap-2 justify-center mb-4">
-										<span className="inline-flex items-center rounded-full border border-transparent bg-amber-100/50 px-3 py-1 text-xs font-medium text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 transition-all duration-300 group-hover:bg-amber-200/80 group-hover:border-amber-500/50 dark:group-hover:bg-amber-800/80 dark:group-hover:border-amber-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-amber-100 dark:bg-amber-900/50 px-3 py-1 text-xs font-medium text-amber-800 dark:text-amber-300">
 											Public Economics
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-yellow-100/50 px-3 py-1 text-xs font-medium text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300 transition-all duration-300 group-hover:bg-yellow-200/80 group-hover:border-yellow-500/50 dark:group-hover:bg-yellow-800/80 dark:group-hover:border-yellow-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-yellow-100 dark:bg-yellow-900/50 px-3 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-300">
 											Python Modeling
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-orange-100/50 px-3 py-1 text-xs font-medium text-orange-800 dark:bg-orange-900/50 dark:text-orange-300 transition-all duration-300 group-hover:bg-orange-200/80 group-hover:border-orange-500/50 dark:group-hover:bg-orange-800/80 dark:group-hover:border-orange-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-orange-100 dark:bg-orange-900/50 px-3 py-1 text-xs font-medium text-orange-800 dark:text-orange-300">
 											Policy Analysis
 										</span>
 									</div>
@@ -189,86 +166,18 @@ export function ProjectsSection() {
 						</Card>
 					</div>
 
-					{/* <div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-green-300 hover:shadow-[0_12px_30px_rgba(30,_215,_96,_0.4)] dark:border-green-900 dark:bg-slate-900/50 dark:hover:border-green-800 animate-scale-in delay-100 h-full transition-all duration-500">
-							<div className="relative aspect-video overflow-hidden">
-								<div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-green-400/20 to-emerald-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-								<Image
-									src="/spotifyplayer.png"
-									width={500}
-									height={300}
-									alt="Spotify Player"
-									className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110"
-								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-							</div>
-							<CardContent className="p-6 flex flex-col flex-grow">
-								<div className="flex flex-col flex-grow">
-									<div className="mb-4">
-										<h3 className="text-xl font-bold text-green-600 dark:text-green-400 transition-all duration-300">
-											<Link href="https://stans-spotify-player.netlify.app" target="_blank" rel="noopener noreferrer" className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-												Custom Spotify Player
-											</Link>
-										</h3>
-									</div>
-									<p className="text-muted-foreground">
-										A custom Spotify player that integrates with the Spotify API that not only lets users control playback but also allows users to see extra statistics about their listening habits.
-									</p>
-								</div>
-								<div className="mt-auto pt-6">
-									<div className="flex flex-wrap gap-2 justify-center mb-4">
-										<span className="inline-flex items-center rounded-full border border-transparent bg-green-100/50 px-3 py-1 text-xs font-medium text-green-800 dark:bg-green-900/50 dark:text-green-300 transition-all duration-300 group-hover:bg-green-200/80 group-hover:border-green-500/50 dark:group-hover:bg-green-800/80 dark:group-hover:border-green-400/50">
-											Netlify Functions
-										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-emerald-100/50 px-3 py-1 text-xs font-medium text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 transition-all duration-300 group-hover:bg-emerald-200/80 group-hover:border-emerald-500/50 dark:group-hover:bg-emerald-800/80 dark:group-hover:border-emerald-400/50">
-											JavaScript
-										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-lime-100/50 px-3 py-1 text-xs font-medium text-lime-800 dark:bg-lime-900/50 dark:text-lime-300 transition-all duration-300 group-hover:bg-lime-200/80 group-hover:border-lime-500/50 dark:group-hover:bg-lime-800/80 dark:group-hover:border-lime-400/50">
-											Spotify API
-										</span>
-									</div>
-									<div className="flex gap-2 justify-center">
-										<Button
-											variant="outline"
-											size="sm"
-											className="border-green-500 hover:bg-green-500 hover:text-white dark:border-green-600 dark:hover:bg-green-600 transition-all duration-300 inline-flex items-center gap-1"
-											asChild
-										>
-											<Link href="https://stans-spotify-player.netlify.app" target="_blank" rel="noopener noreferrer">
-												<Globe className="h-3.5 w-3.5 mr-1" />
-												<span>View Demo</span>
-											</Link>
-										</Button>
-										<Button
-											variant="outline"
-											size="sm"
-											className="border-green-500 hover:bg-green-500 hover:text-white dark:border-green-600 dark:hover:bg-green-600 transition-all duration-300 inline-flex items-center gap-1"
-											asChild
-										>
-											<Link href="http://github.com/StanvBaarsen/StansSpotifyClient" target="_blank" rel="noopener noreferrer">
-												<Github className="h-3.5 w-3.5 mr-1" />
-												<span>Source Code</span>
-											</Link>
-										</Button>
-									</div>
-								</div>
-							</CardContent>
-						</Card>
-					</div> */}
-
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group overflow-hidden border-blue-500 bg-white/50 backdrop-blur-md shadow-[0_4px_12px_rgba(8,_112,_184,_0.2)] hover:border-cyan-300 hover:shadow-[0_12px_30px_rgba(30,_150,_230,_0.4)] dark:border-cyan-900 dark:bg-slate-900/50 dark:hover:border-cyan-800 animate-scale-in delay-100 h-full transition-all duration-500"> {/* backdrop-blur-sm to backdrop-blur-md */}
-							<div className="relative aspect-video overflow-hidden"> {/* Changed h-48 to aspect-video */}
-								<div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-teal-500/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+						<Card className="group overflow-hidden border-cyan-600 dark:border-cyan-400 bg-white dark:bg-slate-900 shadow-lg hover:border-cyan-500 hover:shadow-lg dark:hover:border-cyan-300 animate-scale-in delay-100 h-full transition-all duration-500">
+							<div className="relative aspect-video overflow-hidden">
 								<Image
 									src="/td-banner.png"
 									width={500}
 									height={300}
 									alt="Project 2"
-									className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110" /* Added transition-all, brightness, contrast */
+									className="h-full w-full object-cover"
 								/>
 							</div>
-							<CardContent className="p-6 flex flex-col flex-grow"> {/* Removed style={{ height: 'calc(100% - 12rem)' }} */}
+							<CardContent className="p-6 flex flex-col flex-grow">
 								<div className="flex flex-col flex-grow">
 									<div className="mb-4">
 										<h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300">
@@ -283,13 +192,13 @@ export function ProjectsSection() {
 								</div>
 								<div className="mt-auto pt-6">
 									<div className="flex flex-wrap gap-2 justify-center mb-4">
-										<span className="inline-flex items-center rounded-full border border-transparent bg-cyan-100/50 px-3 py-1 text-xs font-medium text-cyan-800 dark:bg-cyan-900/50 dark:text-cyan-300 transition-all duration-300 group-hover:bg-cyan-200/80 group-hover:border-cyan-500/50 dark:group-hover:bg-cyan-800/80 dark:group-hover:border-cyan-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-cyan-100 dark:bg-cyan-900/50 px-3 py-1 text-xs font-medium text-cyan-800 dark:text-cyan-300">
 											React Native
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-teal-100/50 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 transition-all duration-300 group-hover:bg-teal-200/80 group-hover:border-teal-500/50 dark:group-hover:bg-teal-800/80 dark:group-hover:border-teal-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-teal-100 dark:bg-teal-900/50 px-3 py-1 text-xs font-medium text-teal-800 dark:text-teal-300">
 											Nuxt
 										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-blue-100/50 px-3 py-1 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 transition-all duration-300 group-hover:bg-blue-200/80 group-hover:border-blue-500/50 dark:group-hover:bg-blue-800/80 dark:group-hover:border-blue-400/50">
+										<span className="inline-flex items-center rounded-full border border-transparent bg-blue-100 dark:bg-blue-900/50 px-3 py-1 text-xs font-medium text-blue-800 dark:text-blue-300">
 											Parse Server
 										</span>
 									</div>

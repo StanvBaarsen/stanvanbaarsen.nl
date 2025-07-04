@@ -38,8 +38,7 @@ export default function ContactForm() {
 	}
 
 	return (
-		<div className="relative rounded-xl border-0 bg-white/90 backdrop-blur-sm p-6 shadow-lg dark:bg-slate-900/90">
-			<div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl opacity-20 blur-sm group-hover:opacity-30"></div>
+		<div className="relative rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 p-6 shadow-lg">
 			<div className="relative z-10">
 				<h3 className="mb-4 text-xl font-bold">Send a Message</h3>
 
@@ -54,7 +53,7 @@ export default function ContactForm() {
 					<form className="space-y-4" onSubmit={handleSubmit}>
 						<div className="space-y-5">
 							<div className="grid gap-1">
-								<label htmlFor="name" className="text-sm font-medium mb-1 pl-1 text-blue-600/70 dark:text-blue-400/90">
+								<label htmlFor="name" className="text-sm font-medium mb-1 pl-1 text-gray-700 dark:text-gray-300">
 									Name
 								</label>
 								<input
@@ -62,20 +61,13 @@ export default function ContactForm() {
 									name="name"
 									required
 									disabled={isSubmitting}
-									className="flex h-10 w-full rounded-md border border-input/30 bg-white/60 dark:bg-slate-800/70 px-3 py-1.5 text-base transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-transparent focus:outline-0 focus:ring-1.5 focus:ring-blue-500/50 dark:focus:ring-blue-400/50 focus:bg-white/95 dark:focus:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+									className="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 px-3 py-1.5 text-base transition-colors placeholder:text-muted-foreground focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
 									placeholder="Your name"
-									style={{
-										WebkitTapHighlightColor: 'transparent',
-										outline: 'none',
-										WebkitAppearance: 'none',
-										appearance: 'none',
-										boxShadow: 'none'
-									}}
 								/>
 								{state.errors?.name?.length ? <p className="text-xs text-red-500 mt-0.5 ml-1">{state.errors.name[0]}</p> : null}
 							</div>
 							<div className="grid gap-1">
-								<label htmlFor="email" className="text-sm font-medium mb-1 pl-1 text-blue-600/70 dark:text-blue-400/90">
+								<label htmlFor="email" className="text-sm font-medium mb-1 pl-1 text-gray-700 dark:text-gray-300">
 									Email address
 								</label>
 								<input
@@ -84,20 +76,13 @@ export default function ContactForm() {
 									type="email"
 									required
 									disabled={isSubmitting}
-									className="flex h-10 w-full rounded-md border border-input/30 bg-white/60 dark:bg-slate-800/70 px-3 py-1.5 text-base transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-transparent focus:outline-0 focus:ring-1.5 focus:ring-blue-500/50 dark:focus:ring-blue-400/50 focus:bg-white/95 dark:focus:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+									className="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 px-3 py-1.5 text-base transition-colors placeholder:text-muted-foreground focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
 									placeholder="email@example.com"
-									style={{
-										WebkitTapHighlightColor: 'transparent',
-										outline: 'none',
-										WebkitAppearance: 'none',
-										appearance: 'none',
-										boxShadow: 'none'
-									}}
 								/>
 								{state.errors?.email?.length ? <p className="text-xs text-red-500 mt-0.5 ml-1">{state.errors.email[0]}</p> : null}
 							</div>
 							<div className="grid gap-1">
-								<label htmlFor="message" className="text-sm font-medium mb-1 pl-1 text-blue-600/70 dark:text-blue-400/90">
+								<label htmlFor="message" className="text-sm font-medium mb-1 pl-1 text-gray-700 dark:text-gray-300">
 									Message
 								</label>
 								<textarea
@@ -105,15 +90,8 @@ export default function ContactForm() {
 									name="message"
 									required
 									disabled={isSubmitting}
-									className="flex min-h-[140px] w-full rounded-md border border-input/30 bg-white/60 dark:bg-slate-800/70 px-3 py-2 text-base transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-transparent focus:outline-0 focus:ring-1.5 focus:ring-blue-500/50 dark:focus:ring-blue-400/50 focus:bg-white/95 dark:focus:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50"
+									className="flex min-h-[140px] w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 px-3 py-2 text-base transition-colors placeholder:text-muted-foreground focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
 									placeholder="Your message"
-									style={{
-										WebkitTapHighlightColor: 'transparent',
-										outline: 'none',
-										WebkitAppearance: 'none',
-										appearance: 'none',
-										boxShadow: 'none'
-									}}
 								/>
 								{state.errors?.message?.length ? <p className="text-xs text-red-500 mt-0.5 ml-1">{state.errors.message[0]}</p> : null}
 							</div>
@@ -128,26 +106,13 @@ export default function ContactForm() {
 							</div>
 						)}
 
-						<Button
+						<button
 							type="submit"
-							className="mt-6 relative overflow-hidden w-full h-11 bg-gradient-to-r from-blue-500 to-teal-500 text-white transition-all duration-300 shadow-lg hover:shadow-blue-500/25 hover:shadow-xl hover:scale-[1.01] group btn-gradient-hover btn-pulse rounded-lg font-medium"
 							disabled={isSubmitting}
+							className="w-full rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 						>
-							<div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-600 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100" />
-							<span className="relative flex items-center justify-center gap-2">
-								{isSubmitting ? (
-									<>
-										<Loader2 className="h-4 w-4 animate-spin" />
-										Sending...
-									</>
-								) : (
-									<>
-										<Send className="h-4 w-4" />
-										Send Message
-									</>
-								)}
-							</span>
-						</Button>
+							{isSubmitting ? "Sending..." : "Send Message"}
+						</button>
 					</form>
 				)}
 			</div>

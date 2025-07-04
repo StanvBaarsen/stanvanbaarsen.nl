@@ -88,14 +88,14 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
           : 'bg-transparent py-2'
       }`}>
         {/* Scroll Progress Bar */}
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-teal-500 transition-transform duration-150 ease-out"
-             style={{ transform: `scaleX(${scrollProgress})`, transformOrigin: 'left' }}></div>
-        
-        {/* Fancy gradient underline */}
-        <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-teal-500/40 to-transparent"></div>
-        
-        {/* Subtle glass overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/10 via-white/10 to-sky-50/10 dark:from-blue-950/10 dark:via-slate-950/10 dark:to-sky-950/10 opacity-70"></div>
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-blue-500 transition-transform duration-150 ease-out"
+          style={{
+            transform: `scaleX(${scrollProgress})`,
+            transformOrigin: 'left'
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gray-200 dark:bg-gray-700"></div>
+        <div className="absolute inset-0 bg-white/10 dark:bg-slate-900/10 opacity-70"></div>
         
         <div className="container mx-auto flex h-16 items-center relative z-10 max-w-full px-4">
           {/* Logo */}
@@ -105,12 +105,11 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
               onClick={scrollToTop}
               className="group mr-8 flex items-center space-x-2 interactive-hover cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg"
             >
-              <div className="relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-teal-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
+              <div className="relative overflow-hidden rounded-full bg-blue-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
                 <span className="font-bold text-white text-sm">SB</span>
               </div>
               <span className="relative font-bold text-lg group-hover:scale-[1.01] inline-block transition-all duration-300 ease-in-out">
-                <span className="absolute -inset-0.5 blur-md bg-gradient-to-r from-blue-400/20 via-sky-400/20 to-teal-400/20 opacity-0 group-hover:opacity-70 dark:from-blue-400/10 dark:via-sky-400/10 dark:to-teal-400/10 rounded-lg transition-all duration-300"></span>
-                <span className="relative z-10 bg-gradient-to-r from-blue-600 to-teal-600 group-hover:from-blue-500 group-hover:to-teal-500 dark:from-blue-400 dark:to-teal-400 dark:group-hover:from-blue-300 dark:group-hover:to-teal-300 bg-clip-text text-transparent transition-all duration-300">
+                <span className="relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-all duration-300">
                   Stan van Baarsen
                 </span>
               </span>

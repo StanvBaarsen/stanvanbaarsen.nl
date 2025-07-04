@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes particle-float { /* Used in app/page.tsx for particles */
   0% {
     transform: translateY(0) translateX(0);
@@ -63,12 +51,6 @@
   50% { transform: rotate(3deg); }
 }
 
-/* Keyframes for Project Card Animated Border */
-@keyframes rotate-gradient-border {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* Scroll-triggered animation keyframes */
 @keyframes slideInFromLeft {
   from { transform: translateX(-50px); opacity: 0; }
@@ -85,12 +67,6 @@
   to { transform: translateY(0); opacity: 1; }
 }
 /* Note: scaleUp is very similar to Tailwind's scale-in, will use that directly */
-
-
-.animate-gradient {
-  background-size: 200% auto;
-  animation: gradient 8s ease infinite;
-}
 
 .animate-particle { /* Used in app/page.tsx for particles */
   animation: particle-float 15s infinite;
@@ -125,7 +101,6 @@
   animation: slideInFromBottom 0.7s ease-out forwards;
 }
 
-
 /* Common utility for delayed animations */
 .animation-delay-2000 {
   animation-delay: 2s;
@@ -133,7 +108,6 @@
 .animation-delay-4000 {
   animation-delay: 4s;
 }
-
 
 /* Modern CSS Glass Effect */
 .glass-effect {
@@ -144,20 +118,6 @@
   @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-xl; /* Refined borders */
 }
 
-/* Enhance the cursor glow when hovering over interactive elements */
-a, button, .interactive-hover {
-  position: relative;
-  z-index: 20;
-}
-
-a:hover ~ .cursor-glow, 
-button:hover ~ .cursor-glow,
-.interactive-hover:hover ~ .cursor-glow {
-  opacity: 0.9 !important;
-  transform: translate(-50%, -50%) scale(1.7) !important;
-  filter: brightness(1.2) !important;
-}
-
 /* Enhanced text styling - .fancy-underline might be used for specific text links */
 .fancy-underline {
   @apply relative;
@@ -165,7 +125,7 @@ button:hover ~ .cursor-glow,
 
 .fancy-underline::after {
   content: '';
-  @apply absolute left-0 -bottom-0.5 w-full h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 transform scale-x-0 origin-bottom-left transition-transform duration-300;
+  @apply absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-600 dark:bg-blue-400 transform scale-x-0 origin-bottom-left transition-transform duration-300;
 }
 
 .fancy-underline:hover::after {
@@ -180,7 +140,7 @@ button:hover ~ .cursor-glow,
 .btn-border-sweep::after {
   content: '';
   @apply absolute -left-1/2 top-0 w-[200%] h-full transition-transform duration-500 ease-in-out;
-  background-image: linear-gradient(to right, transparent 25%, hsl(var(--primary)/0.8) 50%, transparent 75%);
+  background: linear-gradient(to right, transparent 25%, hsl(var(--primary)/0.8) 50%, transparent 75%);
   transform: translateX(-100%); /* Initially hidden to the left */
   z-index: 1; /* Below text/icon */
 }
@@ -188,25 +148,6 @@ button:hover ~ .cursor-glow,
 .group:hover .btn-border-sweep::after { /* Assuming button has 'group' class */
   transform: translateX(0%);
 }
-
-/* Project Card Animated Gradient Border */
-.card-animated-gradient-border {
-  @apply relative p-px; /* Padding to create space for the border */
-}
-
-.card-animated-gradient-border::before {
-  content: "";
-  @apply absolute inset-0 -z-10 rounded-[inherit]; /* Inherit border-radius from parent */
-  background: conic-gradient(from var(--gradient-angle, 0deg), hsl(var(--primary)/0.7), hsl(var(--accent)/0.7), hsl(var(--primary)/0.7));
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.group:hover .card-animated-gradient-border::before {
-  opacity: 1;
-  animation: rotate-gradient-border 4s linear infinite; /* Apply rotation on hover */
-}
-
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -229,10 +170,6 @@ body {
   /* Enhanced shadow utilities */
   .shadow-soft {
     box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
-  }
-  
-  .shadow-glow {
-    box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.15);
   }
   
   .text-shadow-sm {
@@ -288,12 +225,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.5);
+  background: rgba(156, 163, 175, 0.5); /* Neutral scrollbar color */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.7);
+  background: rgba(156, 163, 175, 0.8);
 }
 
 .dark ::-webkit-scrollbar-thumb {
