@@ -71,44 +71,6 @@ export function ProjectsSection() {
 					</div>
 
 					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
-						<Card className="group overflow-hidden border-blue-600 dark:border-blue-400 bg-white dark:bg-slate-900 shadow-lg hover:border-blue-500 hover:shadow-lg dark:hover:border-blue-300 animate-scale-in h-full transition-all duration-500">
-							<div className="relative aspect-video overflow-hidden">
-								<Image
-									src="/fig-logo-landscape.png"
-									width={500}
-									height={300}
-									alt="FIG logo"
-									className="h-full w-full object-cover"
-								/>
-							</div>
-							<CardContent className="p-6 flex flex-col flex-grow">
-								<div className="flex flex-col flex-grow">
-									<div className="mb-4">
-										<h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 transition-all duration-300">
-											<Link href="https://getfig.netlify.app" target="_blank" rel="noopener noreferrer" className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm">
-												FIG: AI for Local Government
-											</Link>
-										</h3>
-									</div>
-									<p className="text-muted-foreground">
-										Currently building a startup that provides AI services for local governments. More info coming soon!
-									</p>
-								</div>
-								<div className="mt-auto pt-6">
-									<div className="flex flex-wrap gap-2 justify-center mb-4">
-										<span className="inline-flex items-center rounded-full border border-transparent bg-cyan-100 dark:bg-cyan-900/50 px-3 py-1 text-xs font-medium text-cyan-800 dark:text-cyan-300">
-											Vite
-										</span>
-										<span className="inline-flex items-center rounded-full border border-transparent bg-teal-100 dark:bg-teal-900/50 px-3 py-1 text-xs font-medium text-teal-800 dark:text-teal-300">
-											PostgreSQL
-										</span>
-									</div>
-								</div>
-							</CardContent>
-						</Card>
-					</div>
-
-					<div className="transform transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-md">
 						<Card className="group overflow-hidden border-amber-600 dark:border-amber-400 bg-white dark:bg-slate-900 shadow-lg hover:border-amber-500 hover:shadow-lg dark:hover:border-amber-300 animate-scale-in delay-300 h-full transition-all duration-500">
 							<div className="relative aspect-video overflow-hidden">
 								<div className="h-full w-full flex items-center justify-center bg-amber-100 dark:bg-amber-900/30">
