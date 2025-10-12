@@ -103,7 +103,13 @@ export function AboutSection() {
 										<BookOpen className="w-5 h-5" />
 									</div>
 									<h3 className="text-sm font-semibold">Education</h3>
-									<p className="text-sm text-muted-foreground text-center md:text-left">Technology Policy at Cambridge, Computer Science at Leiden & International Business at VU</p>
+									<p className="text-sm text-muted-foreground text-center md:text-left">
+										<ul>
+											<li>Technology Policy at Cambridge</li>
+											<li>Computer Science at Leiden</li>
+											<li>International Business at VU</li>
+										</ul>
+									</p>
 								</div>
 
 								<div ref={skillsRef} data-animation-type="slideInFromBottom" className="opacity-0 flex flex-col gap-3 items-center md:items-start delay-200 group">
@@ -126,7 +132,7 @@ export function AboutSection() {
 							<div className="w-full h-px bg-gray-200 dark:bg-gray-700"></div>
 
 							<p className="text-base leading-relaxed">
-								I completed two bachelor's degrees, in Computer Science at Leiden University and International Business Administration at Vrije Universiteit Amsterdam, with a focus on political and public economics. I also studied abroad in New York to broaden my global perspective.
+								I completed two bachelor's degrees: one in Computer Science at Leiden University and one in International Business Administration at Vrije Universiteit Amsterdam, the latter with a focus on political and public economics. I also did an exchange semester at CCNY in New York City.
 							</p>
 
 							<div className="flex justify-center">

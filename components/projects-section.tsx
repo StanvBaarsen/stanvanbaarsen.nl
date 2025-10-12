@@ -92,7 +92,7 @@ export function ProjectsSection() {
 										</h3>
 									</div>
 									<p className="text-muted-foreground">
-										For my international business bachelor's thesis, I built a simulation model to analyze the distributional effects of the lowering of the imputed rent tax in the Netherlands between 2018 and 2023. The findings showed that most of the tax relief went to the wealthiest 20%, while house prices rose, making homeownership much harder for new buyers.
+										For my international business bachelor's thesis, I built a simulation model to analyze the distributional effects of the lowering of the imputed rent tax in the Netherlands between 2018 and 2023. The findings showed that the far majority of the tax relief went to the wealthiest 20%, while house prices rose, making homeownership much harder for new buyers.
 									</p>
 								</div>
 								<div className="mt-auto pt-6">
