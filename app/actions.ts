@@ -28,17 +28,17 @@ export async function submitContactForm(prevState: any, formData: FormData) {
 		const { name, email, message } = validatedFields.data
 
 		await resend.emails.send({
-			from: "Contact Form <contactform@stanvanbaarsen.nl>",
+			from: "Contactformulier stanvanbaarsen.nl <contactform@stanvanbaarsen.nl>",
 			to: process.env.CONTACT_EMAIL!,
 			replyTo: email,
-			subject: `New Contact Form Submission from ${name}`,
+			subject: `[stanvanbaarsen.nl] Contactformulier ingevuld door ${name}`,
 			html: `
         <!DOCTYPE html>
         <html>
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>New Contact Form Submission</title>
+            <title>stanvanbaarsen.nl: Contactformulier ingevuld door ${name}</title>
             <style>
               body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -119,9 +119,6 @@ export async function submitContactForm(prevState: any, formData: FormData) {
                   <span class="info-label">Message:</span>
                   <div class="message-box">${message}</div>
                 </div>
-              </div>
-              <div class="email-footer">
-                Received from your personal website contact form
               </div>
             </div>
           </body>
