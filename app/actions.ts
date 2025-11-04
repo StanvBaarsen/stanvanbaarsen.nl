@@ -54,7 +54,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
               }
               .email-header {
-                background: linear-gradient(135deg, #3b82f6, #0ea5e9, #14b8a6);
+                background: #0f469dff;
                 color: white;
                 padding: 20px;
                 text-align: center;
@@ -63,6 +63,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
                 margin: 0;
                 font-size: 24px;
                 font-weight: 600;
+				color: white;
               }
               .email-body {
                 background-color: #ffffff;
@@ -104,7 +105,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
           <body>
             <div class="email-container">
               <div class="email-header">
-                <h1>New Contact Form Submission</h1>
+                <h1>Nieuw contactformulier-inzending</h1>
               </div>
               <div class="email-body">
                 <div class="info-item">

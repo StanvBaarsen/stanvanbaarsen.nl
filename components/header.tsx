@@ -41,7 +41,8 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
       
       // Calculate scroll progress
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = Math.min(Math.max(offset / height, 0), 1);
+      const rawProgress = height > 0 ? offset / height : 0;
+      const progress = Math.min(Math.max(rawProgress, 0), 1);
       setScrollProgress(progress);
     };
 
@@ -88,10 +89,10 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
           : 'bg-transparent py-2'
       }`}>
         {/* Scroll Progress Bar */}
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-blue-500 transition-transform duration-150 ease-out"
+        <div
+          className="absolute top-0 left-0 h-0.5 bg-blue-500 transition-all duration-150 ease-out"
           style={{
-            transform: `scaleX(${scrollProgress})`,
-            transformOrigin: 'left'
+            width: `${(scrollProgress * 100).toFixed(2)}%`,
           }}
         />
         <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gray-200 dark:bg-gray-700"></div>
@@ -102,7 +103,7 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
           <div className="flex items-center">
             <Link 
               href="#" 
-              onClick={scrollToTop}
+              onClick={(e) => scrollToSection(e, "top")}
               className="group mr-8 flex items-center space-x-2 interactive-hover cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg"
             >
               <div className="relative overflow-hidden rounded-full bg-blue-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
@@ -271,7 +272,7 @@ function MobileNavLink({
       className={`text-xl font-medium py-2 px-6 rounded-full transition-colors duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background ${
         active 
           ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400" 
-          : "text-foreground/70 hover:bg-accent/20 dark:hover:bg-accent/30"
+          : "text-foreground/70 hover:bg-blue-50 dark:hover:bg-blue-900/40"
       }`}
     >
       {label}
@@ -292,7 +293,7 @@ function SocialButton({
     <Button
       variant="ghost"
       size="icon"
-      className="interactive-hover text-foreground/70 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 rounded-full" /* Removed transition-all duration-300 to inherit from base Button */
+      className="interactive-hover text-foreground/70 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/40 hover:scale-110 rounded-full" /* Removed transition-all duration-300 to inherit from base Button */
       asChild
     >
       <Link href={href} target="_blank" rel="noopener noreferrer">

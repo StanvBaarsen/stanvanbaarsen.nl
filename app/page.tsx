@@ -24,7 +24,10 @@ export default function Home() {
 
 	const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
 		e.preventDefault()
-		const element = document.getElementById(sectionId)
+		let element = document.getElementById(sectionId)
+		if (sectionId === "top") {
+			element = document.body
+		}
 		if (element) {
 			const start = window.pageYOffset;
 			const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
@@ -79,13 +82,13 @@ export default function Home() {
 			<main className="min-h-screen max-w-full overflow-x-hidden bg-white dark:bg-slate-900">
 				<div className="relative z-10 mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
-					<div className="relative z-10 pb-16">
+					<div className="relative z-10 pb-6">
 						<AboutSection />
 					</div>
-					<div className="relative z-10 py-16">
+					<div className="relative z-10 pt-8">
 						<ProjectsSection />
 					</div>
-					<div className="relative z-10 py-16"> 
+					<div className="relative z-10 py-14"> 
 						<ContactSection />
 					</div>
 				</div>

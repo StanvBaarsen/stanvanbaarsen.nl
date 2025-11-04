@@ -51,7 +51,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-8 w-full"
+      className="relative overflow-hidden pb-8 w-full"
     >
       <div className="container mx-auto relative z-10 px-4 md:px-6 max-w-[1280px]">
         <div className="mb-16 flex flex-col items-center text-center">
@@ -61,7 +61,7 @@ export function ContactSection() {
           {/* Left Column: Text and Links */}
           <div ref={leftColRef} data-animation-type="slideInFromLeft" className="opacity-0">
             <p className="mb-6 text-base leading-relaxed transition-colors duration-300">
-              Interested in working together or have a question? Feel free to reach out through any of the channels
+              Interested in working together or have a question? Feel free to reach out via the contact form or through any of the channels
               below.
             </p>
             <div className="space-y-6">

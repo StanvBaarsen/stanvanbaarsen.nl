@@ -1,17 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { Award, BookOpen, Code } from "lucide-react"
 import { useEffect, useRef } from "react"
 
 export function AboutSection() {
 	const blob1Ref = useRef<HTMLDivElement>(null)
 	const blob2Ref = useRef<HTMLDivElement>(null)
 	const textContentRef = useRef<HTMLDivElement>(null)
-	const imageContentRef = useRef<HTMLDivElement>(null)
-	const educationRef = useRef<HTMLDivElement>(null)
-	const skillsRef = useRef<HTMLDivElement>(null)
-	const passionsRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -50,13 +45,7 @@ export function AboutSection() {
 		}
 
 		const observer = new IntersectionObserver(observerCallback, observerOptions)
-		const elementsToObserve = [
-			textContentRef.current, 
-			imageContentRef.current,
-			educationRef.current,
-			skillsRef.current,
-			passionsRef.current
-		]
+		const elementsToObserve = [textContentRef.current]
 		elementsToObserve.forEach(el => {
 			if (el) observer.observe(el)
 		})
@@ -81,59 +70,35 @@ export function AboutSection() {
 					<div className="w-40 h-40 bg-cyan-100/50 dark:bg-cyan-900/20 rounded-full blur-3xl animate-float [animation-delay:1s]"></div>
 				</div>
 
-				<div className="mb-16 flex flex-col items-center text-center animate-fade-in">
-					<h2 className="text-3xl font-bold tracking-tight md:text-5xl text-blue-600 dark:text-blue-400 mb-4">About me</h2>
-					<p className="max-w-2xl text-muted-foreground text-base leading-relaxed">Student at the University of Cambridge and builder focused on technology, policy, and entrepreneurship.</p>
+				<div className="mb-4 flex flex-col items-center text-center animate-fade-in">
+					<h2 className="text-3xl font-bold tracking-tight md:text-5xl text-blue-600 dark:text-blue-400 mb-0">About me</h2>
 				</div>
 
-				<div className="grid gap-12 md:grid-cols-2 items-center">
-					{/* Text content block - to slide in from left */}
-					<div ref={textContentRef} data-animation-type="slideInFromLeft" className="opacity-0 order-2 md:order-1 relative">
-						<div className="relative space-y-6 backdrop-blur-lg rounded-xl p-6 border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow-xl"> 
-
-							<p className="text-base leading-relaxed">
-								I'm <span className="font-semibold">Stan van Baarsen</span>, currently studying a master's in Technology Policy at the University of Cambridge. After graduating this summer, I plan to focus full time on building a startup. I'm excited to build a venture that creates meaningful change at the intersection of technology, policy, and society.
+				<div className="relative max-w-3xl mx-auto">
+					<div ref={textContentRef} data-animation-type="slideInFromLeft" className="opacity-0 relative">
+						<div className="relative space-y-6 pb-6 sm:pb-8">
+							<p className="text-base leading-relaxed text-left">
+								I'm <span className="font-semibold">Stan van Baarsen</span>! I recently completed my master's in Technology Policy at the University of Cambridge and now work on AI policy at{" "}
+								<a
+									href="https://www.aiplan.nl"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+								>
+									AI Plan
+								</a>, which is an initiative that helps the Netherlands make the most of the AI transition. With dual bachelor's degrees in Computer Science (Leiden University) and International Business Administration (Vrije Universiteit Amsterdam), plus an exchange semester at CCNY in New York City, I bring a mix of technical, economic, and policy perspectives. I am very passionate about startups & entrepreneurship, European technological sovereignty and the role technology can play in business and society!
 							</p>
 
-							<div className="w-full h-px bg-gray-200 dark:bg-gray-700"></div>
-
-							<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-								<div ref={educationRef} data-animation-type="slideInFromBottom" className="opacity-0 flex flex-col gap-3 items-center md:items-start group">
-									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 transition-transform duration-200 ease-in-out group-hover:scale-110">
-										<BookOpen className="w-5 h-5" />
-									</div>
-									<h3 className="text-sm font-semibold">Education</h3>
-									<p className="text-sm text-muted-foreground text-center md:text-left">
-										<ul>
-											<li>Technology Policy at Cambridge</li>
-											<li>Computer Science at Leiden</li>
-											<li>International Business at VU</li>
-										</ul>
-									</p>
-								</div>
-
-								<div ref={skillsRef} data-animation-type="slideInFromBottom" className="opacity-0 flex flex-col gap-3 items-center md:items-start delay-200 group">
-									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-400 transition-transform duration-200 ease-in-out group-hover:scale-110">
-										<Code className="w-5 h-5" />
-									</div>
-									<h3 className="text-sm font-semibold">Skills</h3>
-									<p className="text-sm text-muted-foreground text-center md:text-left">Software Engineering, Web Development, Writing</p>
-								</div>
-
-								<div ref={passionsRef} data-animation-type="slideInFromBottom" className="opacity-0 flex flex-col gap-3 items-center md:items-start delay-300 group">
-									<div className="flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 transition-transform duration-200 ease-in-out group-hover:scale-110">
-										<Award className="w-5 h-5" />
-									</div>
-									<h3 className="text-sm font-semibold">Passions</h3>
-									<p className="text-sm text-muted-foreground text-center md:text-left">European innovation, AI regulation, politics, climate and digital sovereignty</p>
-								</div>
+							<div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
+								<Image
+									src="/me-at-a-panel.png"
+									alt="Stan speaking on an AI policy panel"
+									width={1600}
+									height={900}
+									className="h-auto w-full object-cover"
+									priority={false}
+								/>
 							</div>
-
-							<div className="w-full h-px bg-gray-200 dark:bg-gray-700"></div>
-
-							<p className="text-base leading-relaxed">
-								I completed two bachelor's degrees: one in Computer Science at Leiden University and one in International Business Administration at Vrije Universiteit Amsterdam, the latter with a focus on political and public economics. I also did an exchange semester at CCNY in New York City.
-							</p>
 
 							<div className="flex justify-center">
 								<a 
@@ -154,23 +119,8 @@ export function AboutSection() {
 							</div>
 						</div>
 					</div>
-					{/* Image block - to slide in from right */}
-					<div ref={imageContentRef} data-animation-type="slideInFromRight" className="opacity-0 order-1 md:order-2 relative flex items-center justify-center p-6">
-
-						<div className="relative max-w-md">
-							<div className="relative overflow-hidden rounded-xl border-2 border-blue-600 dark:border-blue-400 bg-white dark:bg-slate-900 shadow-xl">
-								<Image
-									src="/downing.jpg"
-									width={600}
-									height={400}
-									alt="downing.jpg"
-									className="w-full rounded-t-lg"
-								/>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>
 	)
-} 
+}

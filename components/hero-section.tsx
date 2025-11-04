@@ -42,11 +42,8 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 							</span>
 							!
 						</h1>
-						<p className={`mt-4 max-w-[700px] text-left text-base text-muted-foreground transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-							Student • Software Engineer • Building FIG
-						</p>
-						
-						<div className={`mt-8 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+
+						<div className={`mt-10 flex flex-wrap gap-4 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							<Button
 								className="interactive-hover relative overflow-hidden bg-blue-600 text-white transition-all duration-300 ease-in-out shadow-lg hover:bg-blue-700 hover:scale-105 group px-6 py-6 h-12 rounded-xl border border-blue-600 dark:border-blue-600 active:scale-[0.98] active:translate-y-px"
 								asChild
@@ -54,16 +51,6 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 								<Link href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="relative flex items-center gap-2">
 									<MessageSquare className="h-4 w-4 relative z-10" />
 									<span className="relative z-10">Get in touch</span>
-								</Link>
-							</Button>
-							
-							<Button
-								className="interactive-hover relative overflow-hidden bg-transparent border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 transition-all duration-300 ease-in-out hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white hover:scale-105 group px-6 py-6 h-12 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background active:scale-[0.98] active:translate-y-px"
-								asChild
-							>
-								<Link href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="relative flex items-center gap-2">
-									<span className="relative z-10">View projects</span>
-									<ArrowRight className="h-4 w-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
 								</Link>
 							</Button>
 						</div>
