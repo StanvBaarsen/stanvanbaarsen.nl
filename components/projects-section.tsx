@@ -33,7 +33,7 @@ const projects: Project[] = [
 		title: "AI Policy Research at AI Plan",
 		category: "Policy & Research",
 		description:
-			"I currently work at AI Plan, an initiative shaping the Netherlands' national strategy for artificial intelligence. I develop proposals to advance Dutch AI sovereignty, innovation, and infrastructure, collaborating with experts from government, industry, and academia to strengthen the country's position in the AI era.",
+			"I currently work at AI Plan, an initiative shaping the Netherlands' national strategy for artificial intelligence. I write proposals to advance Dutch AI sovereignty, innovation, and infrastructure to strengthen the country's position in the AI era, in collaboration with experts from government, industry, and academia.",
 		icon: Landmark,
 		links: [
 			{ href: "https://www.aiplan.nl", label: "AI Plan website", icon: Globe },

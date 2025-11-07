@@ -86,7 +86,7 @@ export function AboutSection() {
 									className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
 								>
 									AI Plan
-								</a>, which is an initiative that helps the Netherlands make the most of the AI transition. With dual bachelor's degrees in Computer Science (Leiden University) and International Business Administration (Vrije Universiteit Amsterdam), plus an exchange semester at CCNY in New York City, I bring a mix of technical, economic, and policy perspectives. I am very passionate about startups & entrepreneurship, European technological sovereignty and the role technology can play in business and society!
+								</a>: an initiative that helps the Netherlands make the most of the AI transition. With dual bachelor's degrees in Computer Science and International Business Administration, I bring a mix of technical, economic, and policy perspectives. In particular, I'm very passionate about startups & entrepreneurship, European technological sovereignty and the role technology can play in business and society.
 							</p>
 
 							<div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
