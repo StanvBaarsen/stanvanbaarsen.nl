@@ -106,9 +106,6 @@ export function Header({ activeSection, scrollToSection }: HeaderProps) {
               onClick={(e) => scrollToSection(e, "top")}
               className="group mr-8 flex items-center space-x-2 interactive-hover cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg"
             >
-              <div className="relative overflow-hidden rounded-full bg-blue-600 p-1 w-8 h-8 flex items-center justify-center shadow-md">
-                <span className="font-bold text-white text-sm">SB</span>
-              </div>
               <span className="relative font-bold text-lg group-hover:scale-[1.01] inline-block transition-all duration-300 ease-in-out">
                 <span className="relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-all duration-300">
                   Stan van Baarsen
