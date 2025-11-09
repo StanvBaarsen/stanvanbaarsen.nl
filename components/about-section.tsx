@@ -78,7 +78,7 @@ export function AboutSection() {
 					<div ref={textContentRef} data-animation-type="slideInFromLeft" className="opacity-0 relative">
 						<div className="relative space-y-6 pb-6 sm:pb-8">
 							<p className="text-base leading-relaxed text-left">
-								I'm <span className="font-semibold">Stan van Baarsen</span>! I recently completed my master's in Technology Policy at the University of Cambridge and now work on AI policy at{" "}
+								I'm <span className="font-semibold">Stan van Baarsen</span>! I recently completed my master's in Technology Policy at the University of Cambridge and I'm now working on AI policy at{" "}
 								<a
 									href="https://www.aiplan.nl"
 									target="_blank"
@@ -86,10 +86,10 @@ export function AboutSection() {
 									className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
 								>
 									AI Plan
-								</a>: an initiative that helps the Netherlands make the most of the AI transition. With dual bachelor's degrees in Computer Science and International Business Administration, I bring a mix of technical, economic, and policy perspectives. In particular, I'm very passionate about startups & entrepreneurship, European technological sovereignty and the role technology can play in business and society.
+								</a>, an initiative that aims to help the Netherlands make the most of the AI transition. Having also studied Computer Science and International Business, I’m particularly interested in startups and entrepreneurship, European tech sovereignty, and the role technology plays in our lives, economy, and society.
 							</p>
 
-							<div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
+							<div className="lg:block hidden relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg">
 								<Image
 									src="/me-at-a-panel.png"
 									alt="Stan speaking on an AI policy panel"
@@ -105,9 +105,9 @@ export function AboutSection() {
 									href="/resume.pdf" 
 									target="_blank" 
 									rel="noopener noreferrer" 
-									className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 transform"
+									className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md transition-all duration-300 hover:scale-103 transform"
 								>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 transition-transform duration-200 ease-in-out group-hover:translate-x-0.5">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 transition-transform duration-200 ease-in-out">
 										<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
 										<polyline points="14 2 14 8 20 8"></polyline>
 										<line x1="16" y1="13" x2="8" y2="13"></line>

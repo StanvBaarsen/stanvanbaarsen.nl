@@ -28,12 +28,11 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 	}, [])
 
 	return (
-		<section id="home" className="relative overflow-hidden min-h-[85vh] flex items-center pt-14">
-			<div className="container mx-auto relative z-10 px-4 md:px-6 w-full">
+		<section id="home" className="relative overflow-hidden min-h-[85vh] flex items-center pt-0">
+			<div className="container mx-auto relative z-10 px-4 md:px-12 w-full">
 				<div className="grid grid-cols-1 lg:grid-cols-6 gap-10 items-center">
 					<div className="lg:col-span-4 flex flex-col">
-						
-						<h1 className={`text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl xl:text-7xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+						<h1 className={`text-4xl font-bold tracking-tight md:text-5xl lg:text-5xl xl:text-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							Hi, I&apos;m{" "}
 							<span className="interactive-hover relative">
 								<span className="relative z-10 text-blue-600 dark:text-blue-400">
@@ -74,7 +73,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 						</div>
 					</div>
 					
-					<div className={`lg:col-span-2 flex justify-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+					<div className={`lg:flex hidden lg:col-span-2 justify-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
 						<div className="relative">
 							<div className="relative rounded-full bg-white dark:bg-slate-900 p-1.5 border-2 border-blue-600 dark:border-blue-400">
 								<Image
@@ -86,6 +85,17 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 								/>
 							</div>
 						</div>
+					</div>
+					
+					<div className="lg:hidden block relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg mb-24">
+						<Image
+							src="/me-at-a-panel.png"
+							alt="Stan speaking on an AI policy panel"
+							width={1600}
+							height={900}
+							className="h-auto w-full object-cover"
+							priority={false}
+						/>
 					</div>
 				</div>
 			</div>

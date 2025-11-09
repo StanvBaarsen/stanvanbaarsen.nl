@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ProjectsSection } from "@/components/projects-section"
@@ -78,7 +77,6 @@ export default function Home() {
 
 	return (
 		<div className="overflow-x-hidden w-full max-w-full">
-			<Header activeSection={activeSection} scrollToSection={scrollToSection} />
 			<main className="min-h-screen max-w-full overflow-x-hidden bg-white dark:bg-slate-900">
 				<div className="relative z-10 mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
