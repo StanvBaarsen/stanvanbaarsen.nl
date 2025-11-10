@@ -44,7 +44,7 @@ const projects: Project[] = [
 		title: "Timmerdorp Heiloo",
 		category: "Product & Operations",
 		description:
-			"Co-manage the entire tech stack for an annual event, including the website, ticket sales shop, and mobile applications for thousands of visitors and volunteers.",
+			"I co-manage the entire tech stack for an annual event (together with <a style='color: #60a5fa' href='https://shoogland.com'>Stephan Hoogland</a>) including the website, ticket sales shop, and mobile applications for thousands of visitors and volunteers.",
 		icon: Globe,
 		links: [
 			{ href: "https://shop.timmerdorp.com", label: "Web shop", icon: ExternalLink },
@@ -109,9 +109,7 @@ export function ProjectsSection() {
 									</div>
 								</div>
 
-								<p className="text-sm leading-relaxed text-muted-foreground">
-									{project.description}
-								</p>
+								<p className="text-sm leading-relaxed text-muted-foreground" dangerouslySetInnerHTML={{__html: project.description}}/>
 
 								<div className="mt-auto space-y-4">
 									<div className="flex flex-wrap gap-3">
