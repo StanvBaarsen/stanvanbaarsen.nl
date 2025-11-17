@@ -96,7 +96,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 						<div className="relative">
 							<div className="relative rounded-full bg-white dark:bg-slate-900 p-1.5 border-2 border-blue-600 dark:border-blue-400">
 								<Image
-									src="/headshot.jpg"
+									src="/headshot.webp"
 									alt="Stan van Baarsen"
 									width={240}
 									height={240}
@@ -109,7 +109,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 
 					<div className={`lg:hidden block relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg mb-24 duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
 						<Image
-							src="/me-at-a-panel.png"
+							src="/me-at-a-panel.webp"
 							alt="Stan speaking on an AI policy panel"
 							width={1600}
 							height={900}

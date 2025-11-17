@@ -61,7 +61,7 @@ export function AboutSection({ isVisible }: AboutSectionProps) {
 								style={{ transitionDelay: "650ms" }}
 							>
 							<Image
-								src="/me-at-a-panel.png"
+								src="/me-at-a-panel.webp"
 								alt="Stan speaking on an AI policy panel"
 								width={1600}
 								height={900}
