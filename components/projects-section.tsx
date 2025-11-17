@@ -88,7 +88,7 @@ export function ProjectsSection() {
 					<h2 className="text-3xl font-bold tracking-tight md:text-4xl text-blue-600 dark:text-blue-400">My recent work</h2>
 				</div>
 
-				<div className="grid gap-6 sm:gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+				<div className="grid gap-6 sm:gap-8 md:grid-cols-2">
 					{projects.map((project) => (
 						<Card
 							key={project.title}

@@ -32,7 +32,7 @@ export function AboutSection({ isVisible }: AboutSectionProps) {
 
 	return (
 		<section id="about" className="relative pb-8 overflow-hidden">
-			<div className="container mx-auto relative z-10 px-8 w-full max-w-full">
+			<div className="container mx-auto relative z-10 px-8 w-full">
 				<div className="mb-4 flex flex-col items-center text-center">
 					<h2
 						className={`${fadeBase} ${isVisible ? visibleState : hiddenState} text-3xl font-bold tracking-tight md:text-5xl text-blue-600 dark:text-blue-400 mb-0`}
@@ -42,9 +42,9 @@ export function AboutSection({ isVisible }: AboutSectionProps) {
 					</h2>
 				</div>
 
-				<div className="relative max-w-3xl mx-auto">
+				<div className="relative max-w-full mx-auto ">
 					<div className="relative space-y-6 pb-6 sm:pb-8">
-						<p className={`${fadeBase} ${isVisible ? visibleState : hiddenState} text-base leading-relaxed text-left`} style={{ transitionDelay: "450ms" }}>
+						<p className={`text-[1.3em] ${fadeBase} ${isVisible ? visibleState : hiddenState} text-base leading-relaxed text-left`} style={{ transitionDelay: "450ms" }}>
 							I'm <span className="font-semibold">Stan van Baarsen</span>! I recently completed my master's in Technology Policy at the University of Cambridge and I'm now working on AI policy at{" "}
 							<a
 								href="https://www.aiplan.nl"

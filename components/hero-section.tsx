@@ -28,11 +28,11 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 	}, [])
 
 	return (
-		<section id="home" className="relative overflow-hidden min-h-[85vh] flex items-center pt-0">
+		<section id="home" className="relative overflow-hidden min-h-[65vh] sm:min-h-[85vh] lg:min-h-[70vh] flex items-center pt-0">
 			<div className="container mx-auto relative z-10 px-8 md:px-12 w-full">
-				<div className="grid grid-cols-1 lg:grid-cols-6 gap-10 items-center">
-					<div className="lg:col-span-4 flex flex-col">
-						<h1 className={`text-4xl font-bold tracking-tight md:text-5xl lg:text-5xl xl:text-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-0 sm:mt-12`}>
+				<div className="grid grid-cols-1 lg:grid-cols-9 xl:grid-cols-6 gap-10 items-center">
+					<div className="lg:col-span-7 xl:col-span-4 flex flex-col">
+						<h1 className={`font-bold tracking-tight text-3xl sm:text-5xl lg:text-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-0 sm:mt-12`}>
 							Hi, I&apos;m{" "}
 							<span className="interactive-hover relative">
 								<span className="relative z-10 text-blue-600 dark:text-blue-400">
@@ -52,7 +52,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 									<span className="relative z-10">Reach out</span>
 								</Link>
 							</Button>
-							<div className="md:hidden">
+							<div className="sm:hidden">
 								<div className={`mt-2 ml-2 flex items-center gap-4 transition-all`}>
 									<span className="text-sm text-muted-foreground">Or find me on</span>
 									<div className="flex gap-4">
@@ -73,7 +73,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 							</div>
 						</div>
 
-						<div className={`mt-10 flex items-center gap-4 transition-all duration-1000 delay-700 hidden md:block ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+						<div className={`mt-10 flex items-center gap-4 transition-all duration-1000 delay-700 hidden sm:block ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 							<span className="text-sm text-muted-foreground">Find me on</span>
 							<div className="flex gap-4">
 								<a href="https://linkedin.com/in/stan-van-baarsen" target="_blank" rel="noopener noreferrer" className="interactive-hover p-2 text-foreground hover:text-blue-600 transition-all duration-200 ease-in-out hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background rounded-md">
@@ -98,9 +98,9 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 								<Image
 									src="/headshot.webp"
 									alt="Stan van Baarsen"
-									width={240}
-									height={240}
-									className="relative z-10 rounded-full shadow-xl"
+									width={180}
+									height={180}
+									className="relative z-10 rounded-full shadow-xl xl:w-[240px] xl:w-[240px]"
 									preload={true}
 								/>
 							</div>

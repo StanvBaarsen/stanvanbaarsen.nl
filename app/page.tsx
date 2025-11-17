@@ -88,7 +88,7 @@ export default function Home() {
 	return (
 		<div className="overflow-x-hidden w-full max-w-full">
 			<main className="min-h-screen max-w-full overflow-x-hidden bg-white dark:bg-slate-900">
-				<div className="relative z-10 mx-auto box-border">
+				<div className="relative z-10 max-w-[1200px] mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
 					<div className="relative z-10 pb-6">
 						<AboutSection isVisible={isAboutVisible} />
