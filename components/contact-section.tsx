@@ -53,7 +53,7 @@ export function ContactSection() {
       id="contact"
       className="relative overflow-hidden pb-8 w-full"
     >
-      <div className="container mx-auto relative z-10 px-4 md:px-6 max-w-[1280px]">
+      <div className="container mx-auto relative z-10 px-8 max-w-[1280px]">
         <div className="mb-16 flex flex-col items-center text-center">
           <h2 ref={titleRef} data-animation-type="titleSlideUp" className="opacity-0 text-3xl font-bold tracking-tight md:text-4xl text-blue-600 dark:text-blue-400">Let's connect!</h2>
         </div>

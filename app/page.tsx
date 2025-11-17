@@ -26,7 +26,7 @@ export default function Home() {
 		if (!isVisible) return
 		const timer = setTimeout(() => {
 			setIsAboutVisible(true)
-		}, 1300) // wait for hero animations to finish before revealing About
+		}, 600) // wait for hero animations to finish before revealing About
 
 		return () => clearTimeout(timer)
 	}, [isVisible])

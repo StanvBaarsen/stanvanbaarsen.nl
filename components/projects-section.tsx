@@ -83,7 +83,7 @@ const projects: Project[] = [
 export function ProjectsSection() {
 	return (
 		<section id="projects" className="relative py-10 overflow-hidden w-full">
-			<div className="container mx-auto px-4 md:px-6 relative z-10 max-w-[1280px]">
+			<div className="container mx-auto px-8 relative z-10 max-w-[1280px]">
 				<div className="mb-16 flex flex-col items-center text-center animate-fade-in">
 					<h2 className="text-3xl font-bold tracking-tight md:text-4xl text-blue-600 dark:text-blue-400">My recent work</h2>
 				</div>
