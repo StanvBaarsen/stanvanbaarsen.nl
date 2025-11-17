@@ -44,7 +44,7 @@ export function AboutSection({ isVisible }: AboutSectionProps) {
 
 				<div className="relative max-w-full mx-auto ">
 					<div className="relative space-y-6 pb-6 sm:pb-8">
-						<p className={`text-[1.3em] ${fadeBase} ${isVisible ? visibleState : hiddenState} text-base leading-relaxed text-left`} style={{ transitionDelay: "450ms" }}>
+						<p className={`text-[1em] ${fadeBase} ${isVisible ? visibleState : hiddenState} text-base leading-relaxed text-left`} style={{ transitionDelay: "450ms" }}>
 							I'm <span className="font-semibold">Stan van Baarsen</span>! I recently completed my master's in Technology Policy at the University of Cambridge and I'm now working on AI policy at{" "}
 							<a
 								href="https://www.aiplan.nl"
