@@ -32,7 +32,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 			<div className="container mx-auto relative z-10 px-8 md:px-12 w-full">
 				<div className="grid grid-cols-1 lg:grid-cols-9 xl:grid-cols-6 gap-10 items-center">
 					<div className="lg:col-span-7 xl:col-span-4 flex flex-col">
-						<h1 className={`font-bold tracking-tight text-3xl sm:text-5xl lg:text-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-0 sm:mt-12`}>
+						<h1 className={`font-bold tracking-tight text-[1.625rem] sm:text-5xl lg:text-6xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-12`}>
 							Hi, I&apos;m{" "}
 							<span className="interactive-hover relative">
 								<span className="relative z-10 text-blue-600 dark:text-blue-400">
