@@ -26,7 +26,7 @@ export function AboutSection({ isVisible }: AboutSectionProps) {
 		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
 
-	const fadeBase = "transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
+	const fadeBase = "transition-all duration-1000 transition-ease-soft-bounce"
 	const hiddenState = "opacity-0 translate-y-6"
 	const visibleState = "opacity-100 translate-y-0"
 

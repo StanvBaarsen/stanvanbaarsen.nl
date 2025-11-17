@@ -85,11 +85,6 @@
   animation: subtle-rotate-float 18s linear infinite;
 }
 
-/* Utility for Hero CTA Icon wiggle on hover */
-.group-hover\\:animate-wiggle svg { /* Target SVG within the element that has group-hover */
-  animation: wiggle 0.5s ease-in-out infinite;
-}
-
 /* Scroll-triggered animation utilities */
 .animate-slideInFromLeft {
   animation: slideInFromLeft 0.7s ease-out forwards;
@@ -186,6 +181,11 @@ body {
   .dot-pattern {
     background-size: 20px 20px;
     background-image: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  }
+  
+  /* Consistent transition curve used across sections */
+  .transition-ease-soft-bounce {
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   }
 }
 

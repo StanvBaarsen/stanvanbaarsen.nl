@@ -101,6 +101,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 									width={240}
 									height={240}
 									className="relative z-10 rounded-full shadow-xl"
+									preload={true}
 								/>
 							</div>
 						</div>
@@ -113,7 +114,7 @@ export function HeroSection({ isVisible, scrollToSection }: HeroSectionProps) {
 							width={1600}
 							height={900}
 							className="h-auto w-full object-cover"
-							priority={false}
+							preload={true}
 						/>
 					</div>
 				</div>
