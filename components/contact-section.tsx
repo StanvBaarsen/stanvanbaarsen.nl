@@ -66,7 +66,7 @@ export function ContactSection() {
             </p>
             <div className="space-y-6">
               <div className="flex items-center gap-3 group">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:cursor-pointer">
                   <Mail className="h-5 w-5" />
                 </div>
                 <Link
@@ -77,7 +77,7 @@ export function ContactSection() {
                 </Link>
               </div>
               <div className="flex items-center gap-3 group">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:cursor-pointer">
                   <Linkedin className="h-5 w-5" />
                 </div>
                 <Link
@@ -90,7 +90,7 @@ export function ContactSection() {
                 </Link>
               </div>
               <div className="flex items-center gap-3 group">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:cursor-pointer">
                   <Github className="h-5 w-5" />
                 </div>
                 <Link

@@ -9,6 +9,7 @@ import { ContactSection } from "@/components/contact-section"
 export default function Home() {
 	const [activeSection, setActiveSection] = useState("home")
 	const [isVisible, setIsVisible] = useState(false)
+	const [isAboutVisible, setIsAboutVisible] = useState(false)
 
 	useEffect(() => {
 		// Set isVisible to true after a short delay to ensure the component is mounted
@@ -20,6 +21,15 @@ export default function Home() {
 			clearTimeout(timer)
 		}
 	}, [])
+
+	useEffect(() => {
+		if (!isVisible) return
+		const timer = setTimeout(() => {
+			setIsAboutVisible(true)
+		}, 1300) // wait for hero animations to finish before revealing About
+
+		return () => clearTimeout(timer)
+	}, [isVisible])
 
 	const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
 		e.preventDefault()
@@ -81,7 +91,7 @@ export default function Home() {
 				<div className="relative z-10 mx-auto box-border">
 					<HeroSection isVisible={isVisible} scrollToSection={scrollToSection} />
 					<div className="relative z-10 pb-6">
-						<AboutSection />
+						<AboutSection isVisible={isAboutVisible} />
 					</div>
 					<div className="relative z-10 pt-8">
 						<ProjectsSection />
