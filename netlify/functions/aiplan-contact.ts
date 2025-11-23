@@ -11,9 +11,18 @@ const formSchema = z.object({
 });
 
 export const handler: Handler = async (event) => {
-	// Handle CORS
+	// Handle CORS, allow specific origins
+	const allowedOrigins = [
+		"https://aiplan.nl",
+		"https://www.aiplan.nl",
+		"http://localhost:8080",
+		"http://localhost:3000"
+	];
+	const origin = event.headers.origin || event.headers.Origin || "";
+	const allowOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+
 	const headers = {
-		"Access-Control-Allow-Origin": "*", // Or specific domain like "https://aiplan.nl"
+		"Access-Control-Allow-Origin": allowOrigin,
 		"Access-Control-Allow-Headers": "Content-Type",
 		"Access-Control-Allow-Methods": "POST, OPTIONS",
 	};
@@ -45,7 +54,7 @@ export const handler: Handler = async (event) => {
 
 		await resend.emails.send({
 			from: "AI Plan Contactformulier <aiplan@stanvanbaarsen.nl>",
-			to: process.env.CONTACT_EMAIL!, // Make sure this env var is set on stanvanbaarsen.nl
+			to: process.env.AIPLAN_CONTACT_EMAIL!,
 			replyTo: email,
 			subject: `[aiplan.nl] Contactformulier ingevuld door ${name}`,
 			html: `
