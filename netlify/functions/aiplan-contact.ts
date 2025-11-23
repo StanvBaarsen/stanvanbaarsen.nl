@@ -52,7 +52,7 @@ export const handler: Handler = async (event) => {
 
 		const { name, email, message } = validation.data;
 
-		await resend.emails.send({
+		const response = await resend.emails.send({
 			from: "AI Plan Contactformulier <aiplan@stanvanbaarsen.nl>",
 			to: process.env.AIPLAN_CONTACT_EMAIL!,
 			replyTo: email,
@@ -66,6 +66,23 @@ export const handler: Handler = async (event) => {
         </div>
       `,
 		});
+
+		console.log({
+			from: "AI Plan Contactformulier <aiplan@stanvanbaarsen.nl>",
+			to: process.env.AIPLAN_CONTACT_EMAIL!,
+			replyTo: email,
+			subject: `[aiplan.nl] Contactformulier ingevuld door ${name}`,
+			html: `
+        <div>
+          <h1>Nieuw bericht van ${name}</h1>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Bericht:</strong></p>
+          <p>${message}</p>
+        </div>
+      `,
+		})
+
+		console.log(response)
 
 		return {
 			statusCode: 200,
