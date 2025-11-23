@@ -59,8 +59,8 @@ export const handler: Handler = async (event) => {
 			subject: `[aiplan.nl] Contactformulier ingevuld door ${name}`,
 			html: `
         <div>
-          <h1>Nieuw bericht van ${name}</h1>
-          <p><strong>Email:</strong> ${email}</p>
+          <h1>Nieuw bericht van ${name} vanaf het aiplan.nl contactformulier</h1>
+          <p><strong>E-mailadres:</strong> ${email}</p>
           <p><strong>Bericht:</strong></p>
           <p>${message}</p>
         </div>
