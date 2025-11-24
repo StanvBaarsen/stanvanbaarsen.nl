@@ -134,7 +134,7 @@ export const handler: Handler = async (event) => {
 						<h1>Nieuw bericht van ${name}</h1>
 						
 						<div class="meta">
-							<p><strong>Reden:</strong> ${rawReason || "Niet opgegeven"}</p>
+							<p><strong>Type:</strong> ${rawReason || "Niet opgegeven"}</p>
 							<p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
 						</div>
 
