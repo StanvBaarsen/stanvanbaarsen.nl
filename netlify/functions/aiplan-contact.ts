@@ -84,11 +84,11 @@ export const handler: Handler = async (event) => {
 
 				await sheets.spreadsheets.values.append({
 					spreadsheetId: FEEDBACK_SPREADSHEET_ID,
-					range: 'Sheet1!A:C',
+					range: 'Sheet1!A:D',
 					valueInputOption: 'USER_ENTERED',
 					requestBody: {
 						values: [
-							[name, email, message]
+							[name, email, new Date().toLocaleString("nl-NL", { timeZone: "Europe/Amsterdam" }), message]
 						],
 					},
 				});
