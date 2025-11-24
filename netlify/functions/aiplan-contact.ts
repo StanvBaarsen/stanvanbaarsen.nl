@@ -67,7 +67,7 @@ export const handler: Handler = async (event) => {
       `,
 		});
 
-		if(response.error) {
+		if (response.error) {
 			throw new Error(`Email sending failed: ${response.error}`);
 		}
 

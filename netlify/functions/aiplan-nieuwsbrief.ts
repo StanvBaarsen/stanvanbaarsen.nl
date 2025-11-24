@@ -50,6 +50,22 @@ export const handler: Handler = async (event) => {
 
 		const sheets = google.sheets({ version: 'v4', auth });
 
+		// Check if email already exists
+		const existingData = await sheets.spreadsheets.values.get({
+			spreadsheetId: SPREADSHEET_ID,
+			range: 'Sheet1!A:A',
+		});
+
+		const existingEmails = existingData.data.values?.flat() || [];
+
+		if (existingEmails.includes(email)) {
+			return {
+				statusCode: 200,
+				headers,
+				body: "Succesvol geabonneerd op de nieuwsbrief!"
+			};
+		}
+
 		await sheets.spreadsheets.values.append({
 			spreadsheetId: SPREADSHEET_ID,
 			range: 'Sheet1!A:B',
