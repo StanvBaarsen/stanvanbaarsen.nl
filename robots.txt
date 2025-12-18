@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /_next/
+Disallow: /.netlify/functions/
+Disallow: /favicon.ico
+Disallow: /site.webmanifest
+
+Allow: /
