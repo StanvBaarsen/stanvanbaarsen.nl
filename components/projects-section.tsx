@@ -3,9 +3,7 @@
 import Link from "next/link"
 import {
 	Atom,
-	ExternalLink,
 	FileText,
-	Github,
 	Globe,
 	Landmark,
 	LineChart,
@@ -21,7 +19,6 @@ interface ProjectLink {
 
 interface Project {
 	title: string
-	category: string
 	description: string
 	icon: LucideIcon
 	links: ProjectLink[]
@@ -31,7 +28,6 @@ interface Project {
 const projects: Project[] = [
 	{
 		title: "AI Policy Research at AI Plan",
-		category: "Policy & Research",
 		description:
 			"I currently work at AI Plan, an initiative shaping the Netherlands' national strategy for artificial intelligence. I write proposals to advance Dutch AI sovereignty, innovation, and infrastructure to strengthen the country's position in the AI era, in collaboration with experts from government, industry, and academia.",
 		icon: Landmark,
@@ -41,24 +37,7 @@ const projects: Project[] = [
 		dates: "June 2025 — Present",
 	},
 	{
-		title: "Timmerdorp Heiloo",
-		category: "Product & Operations",
-		description:
-			"I co-manage the entire tech stack for an annual event (together with <a style='color: #60a5fa' href='https://shoogland.com'>Stephan Hoogland</a>) including the website, ticket sales shop, and mobile applications for thousands of visitors and volunteers.",
-		icon: Globe,
-		links: [
-			{ href: "https://shop.timmerdorp.com", label: "Web shop", icon: ExternalLink },
-			{
-				href: "https://github.com/SHoogland/timmerdorp-web-app",
-				label: "App source",
-				icon: Github,
-			},
-		],
-		dates: "2018 — Present",
-	},
-	{
 		title: "Thesis: Quantum State Preparation",
-		category: "Academic Research",
 		description:
 			"For my computer science bachelor's thesis, I tackled a theoretical problem in quantum computing with no prior background. I self-taught all concepts, designed and executed research independently, and built an open source C++ repository for quantum state preparation algorithms.",
 		icon: Atom,
@@ -69,7 +48,6 @@ const projects: Project[] = [
 	},
 	{
 		title: "Thesis: Imputed Rent Taxation",
-		category: "Economic Policy",
 		description:
 			"For my international business bachelor's thesis, I built a simulation model to analyze the distributional effects of the lowering of the imputed rent tax in the Netherlands between 2018 and 2023. The findings showed that the far majority of the tax relief went to the wealthiest households, while house prices rose, meaning that this policy (which is still in place!) forms a significant additional barrier to homeownership.",
 		icon: LineChart,
